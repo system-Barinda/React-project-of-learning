@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import FormValidation from './page/form2';
+import FormValidation from './page/myForm';
 
 import './App.css'
 
