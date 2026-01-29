@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import TabManager from './page/TabManager';
+import UserProfile from './page/FetchAPI';
 
 import './App.css'
 
 function App(){
   return (
     <>
-     <TabManager />
+     <UserProfile />
     </>
   );
 }
