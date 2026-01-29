@@ -7,16 +7,16 @@ const FormValidation = () => {
         location: "",
     });
 
-    // Added the 'e' parameter here
+   
     const handleChange = (e) => {
         const { name, value } = e.target;
-        // This spreads the old data and updates only the field that changed
+       
         setFormData({ ...formData, [name]: value });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Stringify so you can actually read the data in the alert
+       
         alert(JSON.stringify(formData, null, 2));
     };
 
@@ -25,7 +25,7 @@ const FormValidation = () => {
             <form onSubmit={handleSubmit}>
                 <input 
                     type="text"
-                    name="username" // Matches the key in state
+                    name="username" 
                     value={formData.username}
                     onChange={handleChange}
                     placeholder="Enter username" 
@@ -33,7 +33,7 @@ const FormValidation = () => {
 
                 <input 
                     type="email"
-                    name="email" // Matches the key in state
+                    name="email" 
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Enter email" 
@@ -41,7 +41,7 @@ const FormValidation = () => {
 
                 <input 
                     type="text"
-                    name="location" // Matches the key in state
+                    name="location"
                     value={formData.location}
                     onChange={handleChange}
                     placeholder="Enter location" 
