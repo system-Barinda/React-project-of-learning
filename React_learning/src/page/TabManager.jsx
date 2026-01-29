@@ -4,12 +4,14 @@ const TabManager = () => {
     const[name,setName] = useState('');
 
     useEffect(() => {
-        document.title = name ? `hello, ${name}` : "Please login";
+    console.log("Effect running! Current name:", name);
+    document.title = name ? `hello, ${name}` : "Please login";
 
-        return () => {
-            document.title = "React App";
-        };
-    },[name]);
+    return () => {
+      console.log("Cleanup: Tab title reset");
+      document.title = "React App";
+    };
+  }, [name]);
     return(
         <div>
         <input type="text"
