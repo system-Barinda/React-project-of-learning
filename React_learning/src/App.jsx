@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import FormValidation from './page/myForm';
+import TabManager from './page/TabManager';
 
 import './App.css'
 
 function App(){
   return (
     <>
-     <FormValidation />
+     <TabManager />
     </>
   );
 }
