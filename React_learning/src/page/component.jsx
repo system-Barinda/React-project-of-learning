@@ -1,5 +1,45 @@
 import React from "react";
 
+// function AboutPage() {
+//   return (
+//     <>
+//       <h1>About</h1>
+//       <p>Hello there.<br />How do you do?</p>
+//     </>
+//   );
+// }
+
+
+// function Counter() {
+//   const [count, setCount] = React.useState(0);
+
+//   return (
+//     <>
+//       <p>Count: {count}</p>
+//       <button onClick={() => setCount(count + 1)}>
+//         Increase
+//       </button>
+//     </>
+//   );
+// }
+
+
+
+// function AdminPanel (){
+//     return(
+//         <>
+//           the first condition appears
+//         </>
+//     )
+// }
+// function LoginForm(){
+//     return(
+//         <>
+//          the second login occurred
+//         </>
+//     )
+// }
+
 
 // function MyButton() {
 //   return (
@@ -35,76 +75,55 @@ import React from "react";
 
 // }
 
-const user = {
-    name:"barinda system sylvere",
-    imageUrl:'https://i.imgur.com/yXOvdOSs.jpg',
-    imageSize:90,
-};
 
 
-function MyApp (){
-    let content;
-    const isLogin = false
-    if(isLogin){
-        content = <AdminPanel />
-    }
-    else{
-        content = <LoginForm />
-    }
-    return(
-        <>
-        <h1>{user.name}</h1>
-        <img className="avatar" src={user.imageUrl} alt={'photo of ' + user.name} style={{
-          width: user.imageSize,
-          height: user.imageSize
-        }} />
+
+// function MyApp (){
+//     const user = {
+//     name:"barinda system sylvere",
+//     imageUrl:'https://i.imgur.com/yXOvdOSs.jpg',
+//     imageSize:90,
+// };
+//     let content;
+//     const isLogin = false
+//     if(isLogin){
+//         content = <AdminPanel />
+//     }
+//     else{
+//         content = <LoginForm />
+//     }
+//     return(
+//         <>
+//         <h1>{user.name}</h1>
+//         <img className="avatar" src={user.imageUrl} alt={'photo of ' + user.name} style={{
+//           width: user.imageSize,
+//           height: user.imageSize
+//         }} />
       
-      <Counter />
+//       <Counter />
 
 
-      <h1>hello this simple condition happening right now</h1>
-      {content}
-        </>
-    )
-}
-
-export default MyApp
-
-
-// function AboutPage() {
-//   return (
-//     <>
-//       <h1>About</h1>
-//       <p>Hello there.<br />How do you do?</p>
-//     </>
-//   );
+//       <h1>hello this simple condition happening right now</h1>
+//       {content}
+//         </>
+//     )
 // }
 
+// export default MyApp
 
-function Counter() {
-  const [count, setCount] = React.useState(0);
 
-  return (
-    <>
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>
-        Increase
-      </button>
-    </>
-  );
-}
 
-function AdminPanel (){
+export default function Products(){
+const products = [
+  { title: 'Cabbage', id: 1 },
+  { title: 'Garlic', id: 2 },
+  { title: 'Apple', id: 3 },
+];
     return(
         <>
-          the first condition appears
-        </>
-    )
-}
-function LoginForm(){
-    return(
-        <>
-         the second login occurred
+        {products.map(a => (
+            <li>{a.title} {a.id} </li>
+        ))}
         </>
     )
 }
