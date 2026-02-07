@@ -144,13 +144,31 @@ import React from "react";
 //     );
 // }
 
-export default function events(){
-    function handleButton(){
-        alert('my name is barinda system sylvere');
+// export default function events(){
+//     function handleButton(){
+//         alert('my name is barinda system sylvere');
+//     }
+//     return(
+//         <>
+//            <button onClick={handleButton} className="h-10 w-60 bg-gray-400 p-10 m-10 text-center cursor-pointer hover:green">add event</button>
+//         </>
+//     )
+// }
+
+export default function MyButton(){
+    const[count,setCount] = React.useState(0);
+    function handleCount(){
+        setCount(count + 1);
+    }
+    function handleDecount(){
+        setCount(count - 1);
     }
     return(
         <>
-           <button onClick={handleButton} className="h-10 w-60 bg-gray-400 p-10 m-10 text-center cursor-pointer hover:green">add event</button>
+        <button onClick={handleCount} className="h-10 w-10 bg-sky-300 m-5">+</button>
+        <button onClick={handleDecount} className="h-10 w-10 bg-sky-300 m-5">-</button>
+
+        <div className="h-20 w-20 bg-green-300 m-5 text-center">{count}</div>
         </>
     )
 }
