@@ -43,6 +43,14 @@ const user = {
 
 
 function MyApp (){
+    let content;
+    const isLogin = false
+    if(isLogin){
+        content = <AdminPanel />
+    }
+    else{
+        content = <LoginForm />
+    }
     return(
         <>
         <h1>{user.name}</h1>
@@ -51,6 +59,11 @@ function MyApp (){
           height: user.imageSize
         }} />
       
+      <Counter />
+
+
+      <h1>hello this simple condition happening right now</h1>
+      {content}
         </>
     )
 }
@@ -67,3 +80,31 @@ export default MyApp
 //   );
 // }
 
+
+function Counter() {
+  const [count, setCount] = React.useState(0);
+
+  return (
+    <>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>
+        Increase
+      </button>
+    </>
+  );
+}
+
+function AdminPanel (){
+    return(
+        <>
+          the first condition appears
+        </>
+    )
+}
+function LoginForm(){
+    return(
+        <>
+         the second login occurred
+        </>
+    )
+}
