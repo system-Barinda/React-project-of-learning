@@ -21,25 +21,36 @@ import React from "react";
 
 
 
-function Screen (){
-    return(
-        <>
-          <div className="barinda border h-30 w-40 rounded-2xl">
-            <h1> my name is barinda system sylvere are not allowed to do that</h1>
+// function Screen (){
+//     return(
+//         <>
+//           <div className="barinda border h-30 w-40 rounded-2xl">
+//             <h1> my name is barinda system sylvere are not allowed to do that</h1>
 
-          </div>
+//           </div>
         
-        </>
-    )
+//         </>
+//     )
 
 
-}
+// }
+
+const user = {
+    name:"barinda system sylvere",
+    imageUrl:'https://i.imgur.com/yXOvdOSs.jpg',
+    imageSize:90,
+};
+
 
 function MyApp (){
     return(
         <>
-        <Screen />
-        <AboutPage />
+        <h1>{user.name}</h1>
+        <img className="avatar" src={user.imageUrl} alt={'photo of ' + user.name} style={{
+          width: user.imageSize,
+          height: user.imageSize
+        }} />
+      
         </>
     )
 }
@@ -47,12 +58,12 @@ function MyApp (){
 export default MyApp
 
 
-function AboutPage() {
-  return (
-    <>
-      <h1>About</h1>
-      <p>Hello there.<br />How do you do?</p>
-    </>
-  );
-}
+// function AboutPage() {
+//   return (
+//     <>
+//       <h1>About</h1>
+//       <p>Hello there.<br />How do you do?</p>
+//     </>
+//   );
+// }
 
