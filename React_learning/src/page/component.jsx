@@ -119,11 +119,10 @@ const products = [
   { title: 'Garlic', id: 2 },
   { title: 'Apple', id: 3 },
 ];
+let listItem = products.map(a => <li>{a.id}</li>)
     return(
         <>
-        {products.map(a => (
-            <li>{a.title} {a.id} </li>
-        ))}
+        {listItem}
         </>
     )
 }
