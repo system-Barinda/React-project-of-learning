@@ -155,20 +155,38 @@ import React from "react";
 //     )
 // }
 
-export default function MyButton(){
-    const[count,setCount] = React.useState(0);
-    function handleCount(){
-        setCount(count + 1);
-    }
-    function handleDecount(){
-        setCount(count - 1);
-    }
+// export default function MyButton(){
+//     const[count,setCount] = React.useState(0);
+//     function handleCount(){
+//         setCount(count + 1);
+//     }
+//     function handleDecount(){
+//         setCount(count - 1);
+//     }
+//     return(
+//         <>
+//         <button onClick={handleCount} className="h-10 w-10 bg-sky-300 m-5">+</button>
+//         <button onClick={handleDecount} className="h-10 w-10 bg-sky-300 m-5">-</button>
+
+//         <div className="h-20 w-20 bg-green-300 m-5 text-center">{count}</div>
+//         </>
+//     )
+// }
+
+export default function Calculator(){
     return(
         <>
-        <button onClick={handleCount} className="h-10 w-10 bg-sky-300 m-5">+</button>
-        <button onClick={handleDecount} className="h-10 w-10 bg-sky-300 m-5">-</button>
+        <div className="container h-100 w-80 bg-slate-200 border m-5">
+            <div className="screen border m-4  h-10 w-[90%]"></div>
+           
+           {/* the button where it is */}
 
-        <div className="h-20 w-20 bg-green-300 m-5 text-center">{count}</div>
+           <div className="containerBTN m-4 h-70 w-[90%] border">
+
+            
+
+           </div>
+        </div>
         </>
-    )
+    );
 }
