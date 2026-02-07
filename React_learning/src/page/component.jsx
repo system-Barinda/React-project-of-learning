@@ -113,16 +113,33 @@ import React from "react";
 
 
 
+// export default function Products(){
+// const products = [
+//   { title: 'Cabbage', id: 1 },
+//   { title: 'Garlic', id: 2 },
+//   { title: 'Apple', id: 3 },
+// ];
+// let listItem = products.map(a => <li>{a.id}</li>)
+//     return(
+//         <>
+//         {listItem}
+//         </>
+//     )
+// }
+
 export default function Products(){
-const products = [
-  { title: 'Cabbage', id: 1 },
-  { title: 'Garlic', id: 2 },
-  { title: 'Apple', id: 3 },
+    const products = [
+  { title: 'Cabbage', isFruit: false, id: 1 },
+  { title: 'Garlic', isFruit: false, id: 2 },
+  { title: 'Apple', isFruit: true, id: 3 },
 ];
-let listItem = products.map(a => <li>{a.id}</li>)
     return(
         <>
-        {listItem}
+        {products.map(a => (
+            <li key={a.id} style={{
+                color:a.isFruit ? "red" : "green"
+            }}>{a.title}</li>
+        ))}
         </>
-    )
+    );
 }
