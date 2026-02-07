@@ -174,16 +174,45 @@ import React from "react";
 // }
 
 export default function Calculator(){
+    const[screen,setScreen] = React.useState('')
     return(
         <>
         <div className="container h-100 w-80 bg-slate-200 border m-5">
-            <div className="screen border m-4  h-10 w-[90%]"></div>
+            <div className="screen border m-4  h-10 w-[90%]">{screen}</div>
            
            {/* the button where it is */}
 
-           <div className="containerBTN m-4 h-70 w-[90%] border">
+           <div className="containerBTN m-4 h-75 w-[90%] border gap-2 space-x-1">
 
-            
+            <div className="firlow flex m-4">
+                <button onClick={() => setScreen(9)} className="h-10 w-20 border ">9</button>
+                <button className="h-10 w-20 border ml-1">8</button>
+                <button className="h-10 w-20 border ml-1">7</button>
+            </div>
+
+            <div className="secondlow flex m-4">
+                <button className="h-10 w-20 border ">6</button>
+                <button className="h-10 w-20 border ml-1">5</button>
+                <button className="h-10 w-20 border ml-1">4</button>
+            </div>
+
+            <div className="thirdlow flex m-4">
+                <button className="h-10 w-20 border ">3</button>
+                <button className="h-10 w-20 border ml-1">2</button>
+                <button className="h-10 w-20 border ml-1">1</button>
+            </div>
+
+            <div className="operation flex m-4">
+                <button className="h-10 w-20 border ">+</button>
+                <button className="h-10 w-20 border ml-1">-</button>
+                <button className="h-10 w-20 border ml-1">X</button>
+            </div>
+
+            <div className="secondlow flex m-4">
+                <button className="h-10 w-20 border ">%</button>
+                <button className="h-10 w-20 border ml-1">.</button>
+                <button className="h-10 w-20 border ml-1">cls</button>
+            </div>
 
            </div>
         </div>
