@@ -127,19 +127,30 @@ import React from "react";
 //     )
 // }
 
-export default function Products(){
-    const products = [
-  { title: 'Cabbage', isFruit: false, id: 1 },
-  { title: 'Garlic', isFruit: false, id: 2 },
-  { title: 'Apple', isFruit: true, id: 3 },
-];
+// export default function Products(){
+//     const products = [
+//   { title: 'Cabbage', isFruit: false, id: 1 },
+//   { title: 'Garlic', isFruit: false, id: 2 },
+//   { title: 'Apple', isFruit: true, id: 3 },
+// ];
+//     return(
+//         <>
+//         {products.map(a => (
+//             <li key={a.id} style={{
+//                 color:a.isFruit ? "red" : "green"
+//             }}>{a.title}</li>
+//         ))}
+//         </>
+//     );
+// }
+
+export default function events(){
+    function handleButton(){
+        alert('my name is barinda system sylvere');
+    }
     return(
         <>
-        {products.map(a => (
-            <li key={a.id} style={{
-                color:a.isFruit ? "red" : "green"
-            }}>{a.title}</li>
-        ))}
+           <button onClick={handleButton} className="h-10 w-60 bg-gray-400 p-10 m-10 text-center cursor-pointer hover:green">add event</button>
         </>
-    );
+    )
 }
