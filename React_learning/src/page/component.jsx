@@ -173,49 +173,76 @@ import React from "react";
 //     )
 // }
 
+
 export default function Calculator(){
-    const[screen,setScreen] = React.useState('')
+      const [screen, setScreen] = React.useState("");
+
+      const handleClick = (value) => {
+        setScreen((prev) => prev + value);
+      }
+      const clearScreen = () => {
+        setScreen("");
+      }
+
+     const calculate = () => {
+        try{
+            setScreen(eval(screen).toString());
+        }
+        catch{
+            setScreen("Error");
+        }
+
+     }
+
     return(
-        <>
-        <div className="container h-100 w-80 bg-slate-200 border m-5">
-            <div className="screen border m-4  h-10 w-[90%]">{screen}</div>
-           
-           {/* the button where it is */}
+        <div className="container h-100 w-80 border m-5">
+      <div className="screen border m-4 h-10 w-[90%] p-2">
+        {screen}
+      </div>
 
-           <div className="containerBTN m-4 h-75 w-[90%] border gap-2 space-x-1">
+      <div className="containerBTN m-4 w-[90%] border">
 
-            <div className="firlow flex m-4">
-                <button onClick={() => setScreen(9)} className="h-10 w-20 border ">9</button>
-                <button className="h-10 w-20 border ml-1">8</button>
-                <button className="h-10 w-20 border ml-1">7</button>
-            </div>
-
-            <div className="secondlow flex m-4">
-                <button className="h-10 w-20 border ">6</button>
-                <button className="h-10 w-20 border ml-1">5</button>
-                <button className="h-10 w-20 border ml-1">4</button>
-            </div>
-
-            <div className="thirdlow flex m-4">
-                <button className="h-10 w-20 border ">3</button>
-                <button className="h-10 w-20 border ml-1">2</button>
-                <button className="h-10 w-20 border ml-1">1</button>
-            </div>
-
-            <div className="operation flex m-4">
-                <button className="h-10 w-20 border ">+</button>
-                <button className="h-10 w-20 border ml-1">-</button>
-                <button className="h-10 w-20 border ml-1">X</button>
-            </div>
-
-            <div className="secondlow flex m-4">
-                <button className="h-10 w-20 border ">%</button>
-                <button className="h-10 w-20 border ml-1">.</button>
-                <button className="h-10 w-20 border ml-1">cls</button>
-            </div>
-
-           </div>
+        {/* Numbers */}
+        <div className="flex m-2">
+          <button onClick={() => handleClick("9")}>9</button>
+          <button onClick={() => handleClick("8")}>8</button>
+          <button onClick={() => handleClick("7")}>7</button>
         </div>
-        </>
-    );
+
+        <div className="flex m-2">
+          <button onClick={() => handleClick("6")}>6</button>
+          <button onClick={() => handleClick("5")}>5</button>
+          <button onClick={() => handleClick("4")}>4</button>
+        </div>
+
+        <div className="flex m-2">
+          <button onClick={() => handleClick("3")}>3</button>
+          <button onClick={() => handleClick("2")}>2</button>
+          <button onClick={() => handleClick("1")}>1</button>
+        </div>
+
+        {/* Operations */}
+        <div className="flex m-2">
+          <button onClick={() => handleClick("+")}>+</button>
+          <button onClick={() => handleClick("-")}>-</button>
+          <button onClick={() => handleClick("*")}>×</button>
+        </div>
+
+        {/* Extra */}
+        <div className="flex m-2">
+          <button onClick={() => handleClick("%")}>%</button>
+          <button onClick={() => handleClick(".")}>.</button>
+          <button onClick={clearScreen}>CLS</button>
+        </div>
+
+        {/* Equal */}
+        <div className="flex m-2">
+          <button onClick={calculate} className="w-full">
+            =
+          </button>
+        </div>
+
+      </div>
+    </div>
+    )
 }
