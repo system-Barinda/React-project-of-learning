@@ -174,70 +174,87 @@ import React from "react";
 // }
 
 
-export default function Calculator() {
-  const [screen, setScreen] = React.useState("");
 
-  const handleClick = (value) => {
-    setScreen((prev) => prev + value);
-  };
+// this Calculator
+// export default function Calculator() {
+//   const [screen, setScreen] = React.useState("");
 
-  const clearScreen = () => {
-    setScreen("");
-  };
+//   const handleClick = (value) => {
+//     setScreen((prev) => prev + value);
+//   };
 
-  const calculate = () => {
-    try {
-      setScreen(eval(screen).toString());
-    } catch {
-      setScreen("Error");
-    }
-  };
+//   const clearScreen = () => {
+//     setScreen("");
+//   };
 
-  return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+//   const calculate = () => {
+//     try {
+//       setScreen(eval(screen).toString());
+//     } catch {
+//       setScreen("Error");
+//     }
+//   };
 
-      <div className="bg-white shadow-xl rounded-xl p-5 w-80">
+//   return (
+//     <div className="flex justify-center items-center min-h-screen bg-gray-100">
 
-        {/* Screen */}
-        <div className="bg-black text-green-400 text-right p-3 rounded-lg text-xl font-mono mb-4">
-          {screen || "0"}
-        </div>
+//       <div className="bg-white shadow-xl rounded-xl p-5 w-80">
 
-        {/* Buttons Grid */}
-        <div className="grid grid-cols-3 gap-3">
+//         {/* Screen */}
+//         <div className="bg-black text-green-400 text-right p-3 rounded-lg text-xl font-mono mb-4">
+//           {screen || "0"}
+//         </div>
 
-          {/* Numbers */}
-          {["9","8","7","6","5","4","3","2","1","0"].map((num) => (
-            <button
-              key={num}
-              onClick={() => handleClick(num)}
-              className="bg-gray-200 hover:bg-gray-300 p-3 rounded-lg text-lg font-bold"
-            >
-              {num}
-            </button>
-          ))}
+//         {/* Buttons Grid */}
+//         <div className="grid grid-cols-3 gap-3">
 
-          {/* Operators */}
-          <button onClick={() => handleClick("+")} className="bg-blue-500 text-white p-3 rounded-lg">+</button>
-          <button onClick={() => handleClick("-")} className="bg-blue-500 text-white p-3 rounded-lg">-</button>
-          <button onClick={() => handleClick("*")} className="bg-blue-500 text-white p-3 rounded-lg">×</button>
+//           {/* Numbers */}
+//           {["9","8","7","6","5","4","3","2","1","0"].map((num) => (
+//             <button
+//               key={num}
+//               onClick={() => handleClick(num)}
+//               className="bg-gray-200 hover:bg-gray-300 p-3 rounded-lg text-lg font-bold"
+//             >
+//               {num}
+//             </button>
+//           ))}
 
-          {/* Extra */}
-          <button onClick={() => handleClick("%")} className="bg-yellow-400 p-3 rounded-lg">%</button>
-          <button onClick={() => handleClick(".")} className="bg-yellow-400 p-3 rounded-lg">.</button>
-          <button onClick={clearScreen} className="bg-red-500 text-white p-3 rounded-lg">CLS</button>
+//           {/* Operators */}
+//           <button onClick={() => handleClick("+")} className="bg-blue-500 text-white p-3 rounded-lg">+</button>
+//           <button onClick={() => handleClick("-")} className="bg-blue-500 text-white p-3 rounded-lg">-</button>
+//           <button onClick={() => handleClick("*")} className="bg-blue-500 text-white p-3 rounded-lg">×</button>
 
-        </div>
+//           {/* Extra */}
+//           <button onClick={() => handleClick("%")} className="bg-yellow-400 p-3 rounded-lg">%</button>
+//           <button onClick={() => handleClick(".")} className="bg-yellow-400 p-3 rounded-lg">.</button>
+//           <button onClick={clearScreen} className="bg-red-500 text-white p-3 rounded-lg">CLS</button>
 
-        {/* Equal Button */}
-        <button
-          onClick={calculate}
-          className="mt-4 w-full bg-green-600 text-white p-3 rounded-lg text-xl font-bold hover:bg-green-700"
-        >
-          =
-        </button>
+//         </div>
 
-      </div>
-    </div>
-  );
+//         {/* Equal Button */}
+//         <button
+//           onClick={calculate}
+//           className="mt-4 w-full bg-green-600 text-white p-3 rounded-lg text-xl font-bold hover:bg-green-700"
+//         >
+//           =
+//         </button>
+
+//       </div>
+//     </div>
+//   );
+// }
+
+
+export default function MyApp(){
+    const[count,setCount] = React.useState(0);
+    const handleCount = () => { setCount(count + 1)}
+    return(
+        <>
+        <button count={count} onClick={handleCount}>{count}</button>
+        <button count={count} onClick={handleCount}>{count}</button>
+        </>
+    )
+}
+function MyButton(){
+
 }
