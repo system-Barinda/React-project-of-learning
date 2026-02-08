@@ -16,7 +16,7 @@ return(
 {
   isVisible && (
 <div>
-  dsfjhlfhakjhfadkjhfgahjkgadfjgl
+  
   <br />
   <h1>barinda system sylvere</h1> <hr />
   <p>additional operation</p>
