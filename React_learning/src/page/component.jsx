@@ -174,75 +174,70 @@ import React from "react";
 // }
 
 
-export default function Calculator(){
-      const [screen, setScreen] = React.useState("");
+export default function Calculator() {
+  const [screen, setScreen] = React.useState("");
 
-      const handleClick = (value) => {
-        setScreen((prev) => prev + value);
-      }
-      const clearScreen = () => {
-        setScreen("");
-      }
+  const handleClick = (value) => {
+    setScreen((prev) => prev + value);
+  };
 
-     const calculate = () => {
-        try{
-            setScreen(eval(screen).toString());
-        }
-        catch{
-            setScreen("Error");
-        }
+  const clearScreen = () => {
+    setScreen("");
+  };
 
-     }
+  const calculate = () => {
+    try {
+      setScreen(eval(screen).toString());
+    } catch {
+      setScreen("Error");
+    }
+  };
 
-    return(
-        <div className="container h-100 w-80 border m-5">
-      <div className="screen border m-4 h-10 w-[90%] p-2">
-        {screen}
-      </div>
+  return (
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
 
-      <div className="containerBTN m-4 w-[90%] border">
+      <div className="bg-white shadow-xl rounded-xl p-5 w-80">
 
-        {/* Numbers */}
-        <div className="flex m-2">
-          <button onClick={() => handleClick("9")}>9</button>
-          <button onClick={() => handleClick("8")}>8</button>
-          <button onClick={() => handleClick("7")}>7</button>
+        {/* Screen */}
+        <div className="bg-black text-green-400 text-right p-3 rounded-lg text-xl font-mono mb-4">
+          {screen || "0"}
         </div>
 
-        <div className="flex m-2">
-          <button onClick={() => handleClick("6")}>6</button>
-          <button onClick={() => handleClick("5")}>5</button>
-          <button onClick={() => handleClick("4")}>4</button>
+        {/* Buttons Grid */}
+        <div className="grid grid-cols-3 gap-3">
+
+          {/* Numbers */}
+          {["9","8","7","6","5","4","3","2","1","0"].map((num) => (
+            <button
+              key={num}
+              onClick={() => handleClick(num)}
+              className="bg-gray-200 hover:bg-gray-300 p-3 rounded-lg text-lg font-bold"
+            >
+              {num}
+            </button>
+          ))}
+
+          {/* Operators */}
+          <button onClick={() => handleClick("+")} className="bg-blue-500 text-white p-3 rounded-lg">+</button>
+          <button onClick={() => handleClick("-")} className="bg-blue-500 text-white p-3 rounded-lg">-</button>
+          <button onClick={() => handleClick("*")} className="bg-blue-500 text-white p-3 rounded-lg">×</button>
+
+          {/* Extra */}
+          <button onClick={() => handleClick("%")} className="bg-yellow-400 p-3 rounded-lg">%</button>
+          <button onClick={() => handleClick(".")} className="bg-yellow-400 p-3 rounded-lg">.</button>
+          <button onClick={clearScreen} className="bg-red-500 text-white p-3 rounded-lg">CLS</button>
+
         </div>
 
-        <div className="flex m-2">
-          <button onClick={() => handleClick("3")}>3</button>
-          <button onClick={() => handleClick("2")}>2</button>
-          <button onClick={() => handleClick("1")}>1</button>
-        </div>
-
-        {/* Operations */}
-        <div className="flex m-2">
-          <button onClick={() => handleClick("+")}>+</button>
-          <button onClick={() => handleClick("-")}>-</button>
-          <button onClick={() => handleClick("*")}>×</button>
-        </div>
-
-        {/* Extra */}
-        <div className="flex m-2">
-          <button onClick={() => handleClick("%")}>%</button>
-          <button onClick={() => handleClick(".")}>.</button>
-          <button onClick={clearScreen}>CLS</button>
-        </div>
-
-        {/* Equal */}
-        <div className="flex m-2">
-          <button onClick={calculate} className="w-full">
-            =
-          </button>
-        </div>
+        {/* Equal Button */}
+        <button
+          onClick={calculate}
+          className="mt-4 w-full bg-green-600 text-white p-3 rounded-lg text-xl font-bold hover:bg-green-700"
+        >
+          =
+        </button>
 
       </div>
     </div>
-    )
+  );
 }
