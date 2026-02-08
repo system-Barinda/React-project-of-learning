@@ -261,26 +261,47 @@ import React from "react";
 
 
 
-export default function MyApp() {
-  const [count, setCount] = useState(0);
+// export default function MyApp() {
+//   const [count, setCount] = useState(0);
 
-  function handleClick() {
-    setCount(count + 1);
-  }
+//   function handleClick() {
+//     setCount(count + 1);
+//   }
 
-  return (
-    <div>
-      <h1>Counters that update together</h1>
-      <MyButton count={count} onClick={handleClick} />
-      <MyButton count={count} onClick={handleClick} />
-    </div>
-  );
+//   return (
+//     <div>
+//       <h1>Counters that update together</h1>
+//       <MyButton count={count} onClick={handleClick} />
+//       <MyButton count={count} onClick={handleClick} />
+//     </div>
+//   );
+// }
+
+// function MyButton({ count, onClick }) {
+//   return (
+//     <button onClick={onClick}>
+//       Clicked {count} times
+//     </button>
+//   );
+// }
+
+
+export default function myBarinda(){
+    const[count,setCount] = React.useState(0);
+    const handleClick = () => {
+      setCount(count + 1);
+    }
+    return(
+        <div className="h-50 w-40 border text-center">
+        <h1>Counters that update together</h1>
+             <MyButton count={count} onClick={handleClick} /> 
+             <MyButton count={count} onClick={handleClick} /> 
+        </div>
+    )
 }
 
-function MyButton({ count, onClick }) {
-  return (
-    <button onClick={onClick}>
-      Clicked {count} times
-    </button>
-  );
+const MyButton = ({count,onClick}) => {
+   return(
+    <button className="h-10 w-10 border bg-amber-300" onClick={onClick}>{count}</button>
+   )
 }
