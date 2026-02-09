@@ -428,9 +428,22 @@ import  { useState } from "react";
 
 export default function square(){
     return(
-        <>
-       <button className="square border h-10 w-20">X</button>
-       <button className="square border h-10 w-20">X</button>
-       </>
+       <>
+      <div className="board-row h-20 w-100 border">
+        <button className="square h-20 w-20 border">1</button>
+        <button className="square h-20 w-20 border">2</button>
+        <button className="square h-20 w-20 border">3</button>
+      </div>
+      <div className="board-row h-20 w-100 border">
+        <button className="square h-20 w-20 border">4</button>
+        <button className="square h-20 w-20 border">5</button>
+        <button className="square h-20 w-20 border">6</button>
+      </div>
+      <div className="board-row h-20 w-100 border">
+        <button className="square h-20 w-20 border">7</button>
+        <button className="square h-20 w-20 border">8</button>
+        <button className="square h-20 w-20 border">9</button>
+      </div>
+    </>
     );
 };
