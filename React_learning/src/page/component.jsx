@@ -426,8 +426,12 @@ import  { useState } from "react";
 //   return null;
 // }
 
-function Square({value}){
- return <button className="square h-20 w-20 m-5 border">{value}</button>
+function Square(){
+    const [value,setValue] = React.useState(null);
+    const handleClick = () => {
+        setValue("X")
+    }
+ return <button onClick={handleClick} className="square h-20 w-20 m-5 border">{value}</button>
 }
 export default function Board(){
     return(
