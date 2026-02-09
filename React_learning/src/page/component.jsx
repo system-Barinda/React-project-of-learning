@@ -432,10 +432,14 @@ function Square({value,onSquareClick}){
 }
 export default function Board(){
     const [squares,setSquares] = React.useState(Array(9).fill(null))
+    const [screen,setScreen] = React.useState(Array(9).fill('x'))
+     const b = [1,2,3,4,5,6,7,8,9];
     function handleClick(i){
-        const nextSquares = squares.slice();
-    nextSquares[i] = "X";
+        const nextSquares = b.splice(i);
+         nextSquares[i] = "B";
+      
     setSquares(nextSquares);
+   
     }
     return(
        <>
