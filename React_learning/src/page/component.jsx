@@ -434,6 +434,7 @@ function Square(){
  return <button onClick={handleClick} className="square h-20 w-20 m-5 border">{value}</button>
 }
 export default function Board(){
+    const [square,setSquare] = React.useState(Array(9).fill(null))
     return(
        <>
       <div className="board-row h-30 w-100 border">
