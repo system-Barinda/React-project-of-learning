@@ -426,24 +426,30 @@ import  { useState } from "react";
 //   return null;
 // }
 
-export default function square(){
+function Square({value}){
+ return <button className="square h-20 w-20 m-5 border">{value}</button>
+}
+export default function Board(){
     return(
        <>
-      <div className="board-row h-20 w-100 border">
-        <button className="square h-20 w-20 border">1</button>
-        <button className="square h-20 w-20 border">2</button>
-        <button className="square h-20 w-20 border">3</button>
+      <div className="board-row h-30 w-100 border">
+        <Square  value={1} />
+        <Square  value={2} />
+        <Square  value={3} />
       </div>
-      <div className="board-row h-20 w-100 border">
-        <button className="square h-20 w-20 border">4</button>
-        <button className="square h-20 w-20 border">5</button>
-        <button className="square h-20 w-20 border">6</button>
+      <div className="board-row h-30 w-100 border">
+        <Square  value={4} />
+        <Square  value={5} />
+        <Square  value={6} />
       </div>
-      <div className="board-row h-20 w-100 border">
-        <button className="square h-20 w-20 border">7</button>
-        <button className="square h-20 w-20 border">8</button>
-        <button className="square h-20 w-20 border">9</button>
+
+      <div className="board-row h-30 w-100 border">
+        <Square  value={7} />
+        <Square  value={8} />
+        <Square  value={9} />
       </div>
+
+      
     </>
     );
 };
