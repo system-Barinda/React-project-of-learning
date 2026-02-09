@@ -425,3 +425,12 @@ import  { useState } from "react";
 //   }
 //   return null;
 // }
+
+export default function square(){
+    return(
+        <>
+       <button className="square border h-10 w-20">X</button>
+       <button className="square border h-10 w-20">X</button>
+       </>
+    );
+};
