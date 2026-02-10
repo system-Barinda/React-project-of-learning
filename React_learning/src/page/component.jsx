@@ -576,6 +576,17 @@ products.forEach((product) => {
   }
   lastCategory = product.category;
 })
+return(
+  <table className="border">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>price</th>
+      </tr>
+    </thead>
+     <tbody>{rows}</tbody>
+  </table>
+)
 }
 
 
