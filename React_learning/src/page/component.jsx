@@ -558,13 +558,27 @@ export default function Barinda(){
   { category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin" },
   { category: "Vegetables", price: "$1", stocked: true, name: "Peas" }
 ];
+
+  return <button>send data</button>
+};
+
 function FilterableProductTable(){
 
 }
 
-function ProductTable(){
+function ProductTable({products}){
+const rows = [];
+let lastCategory = null;
 
+products.forEach((product) => {
+  if(product.category !==  lastCategory){
+    rows.push(<ProductCategoryRow category={product.category} key={product.category}/>);
+  }
+  lastCategory = product.category;
+})
 }
+
+
 
 function ProductCategoryRow({category}){
  return(
@@ -574,8 +588,7 @@ function ProductCategoryRow({category}){
  );
 }
 
-  return <button>send data</button>
-};
+
 
 function ProductRow({product}){
   const name = product.stocked ? product.name :
