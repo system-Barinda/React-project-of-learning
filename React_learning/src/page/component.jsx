@@ -435,215 +435,216 @@ import  { useState } from "react";
 
 
 
-// function Square({ value, onSquareClick }) {
-//   return (
-//     <button
-//       onClick={onSquareClick}
-//       className="w-16 h-16 border border-gray-500 text-2xl font-bold flex items-center justify-center hover:bg-gray-100"
-//     >
-//       {value}
-//     </button>
-//   );
-// }
-
-
-// function Board({ xIsNext, squares, onPlay }) {
-//   function handleClick(i) {
-//     if (calculateWinner(squares) || squares[i]) return;
-
-//     const nextSquares = squares.slice();
-//     nextSquares[i] = xIsNext ? "X" : "O";
-//     onPlay(nextSquares);
-//   }
-
-//   const winner = calculateWinner(squares);
-//   const status = winner
-//     ? `Winner: ${winner}`
-//     : `Next player: ${xIsNext ? "X" : "O"}`;
-
-//   return (
-//     <div>
-//       <div className="mb-4 text-lg font-semibold">{status}</div>
-
-//       <div className="grid grid-cols-3 gap-1">
-//         {squares.map((value, i) => (
-//           <Square
-//             key={i}
-//             value={value}
-//             onSquareClick={() => handleClick(i)}
-//           />
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
-
-
-// export default function App() {
-//   const [history, setHistory] = useState([Array(9).fill(null)]);
-//   const [currentMove, setCurrentMove] = useState(0);
-
-//   const xIsNext = currentMove % 2 === 0;
-//   const currentSquares = history[currentMove];
-
-//   function handlePlay(nextSquares) {
-//     const nextHistory = history
-//       .slice(0, currentMove + 1)
-//       .concat([nextSquares]);
-
-//     setHistory(nextHistory);
-//     setCurrentMove(nextHistory.length - 1);
-//   }
-
-//   function jumpTo(move) {
-//     setCurrentMove(move);
-//   }
-
-//   return (
-//     <div className="min-h-screen flex items-center justify-center bg-gray-50">
-//       <div className="flex gap-10 p-6 bg-white shadow rounded">
-//         <Board
-//           xIsNext={xIsNext}
-//           squares={currentSquares}
-//           onPlay={handlePlay}
-//         />
-
-//         <ol className="space-y-2">
-//           {history.map((_, move) => (
-//             <li key={move}>
-//               <button
-//                 onClick={() => jumpTo(move)}
-//                 className="px-3 py-1 border rounded hover:bg-gray-100"
-//               >
-//                 {move === 0 ? "Go to start" : `Go to move #${move}`}
-//               </button>
-//             </li>
-//           ))}
-//         </ol>
-//       </div>
-//     </div>
-//   );
-// }
-
-// /* ---------- Winner Logic ---------- */
-// function calculateWinner(squares) {
-//   const lines = [
-//     [0, 1, 2],
-//     [3, 4, 5],
-//     [6, 7, 8],
-//     [0, 3, 6],
-//     [1, 4, 7],
-//     [2, 5, 8],
-//     [0, 4, 8],
-//     [2, 4, 6],
-//   ];
-
-//   for (let [a, b, c] of lines) {
-//     if (
-//       squares[a] &&
-//       squares[a] === squares[b] &&
-//       squares[a] === squares[c]
-//     ) {
-//       return squares[a];
-//     }
-//   }
-//   return null;
-// }
- function ProductCategoryRow({ category }) {
+function Square({ value, onSquareClick }) {
   return (
-    <tr>
-      <th colSpan="2">
-        {category}
-      </th>
-    </tr>
+    <button
+      onClick={onSquareClick}
+      className="w-16 h-16 border border-gray-500 text-2xl font-bold flex items-center justify-center hover:bg-gray-100"
+    >
+      {value}
+    </button>
   );
 }
 
-function ProductRow({ product }) {
-  const name = product.stocked ? product.name :
-    <span style={{ color: 'red' }}>
-      {product.name}
-    </span>;
 
-  return (
-    <tr>
-      <td>{name}</td>
-      <td>{product.price}</td>
-    </tr>
-  );
-}
+function Board({ xIsNext, squares, onPlay }) {
+  function handleClick(i) {
+    if (calculateWinner(squares) || squares[i]) return;
 
-function ProductTable({ products }) {
-  const rows = [];
-  let lastCategory = null;
+    const nextSquares = squares.slice();
+    nextSquares[i] = xIsNext ? "X" : "O";
+    onPlay(nextSquares);
+  }
 
-  products.forEach((product) => {
-    if (product.category !== lastCategory) {
-      rows.push(
-        <ProductCategoryRow
-          category={product.category}
-          key={product.category} />
-      );
-    }
-    rows.push(
-      <ProductRow
-        product={product}
-        key={product.name} />
-    );
-    lastCategory = product.category;
-  });
+  const winner = calculateWinner(squares);
+  const status = winner
+    ? `Winner: ${winner}`
+    : `Next player: ${xIsNext ? "X" : "O"}`;
 
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </table>
-  );
-}
-
-function SearchBar() {
-  return (
-    <form>
-      <input type="text" placeholder="Search..." />
-      <label>
-        <input type="checkbox" />
-        {' '}
-        Only show products in stock
-      </label>
-    </form>
-  );
-}
-
-function FilterableProductTable({ products }) {
-   const [filterText, setFilterText] = useState('');
-   const [inStockOnly, setInStockOnly] = useState(false);
   return (
     <div>
-  <SearchBar 
-    filterText={filterText} 
-    inStockOnly={inStockOnly} />
-  <ProductTable 
-    products={products}
-    filterText={filterText}
-    inStockOnly={inStockOnly} />
-</div>
+      <div className="mb-4 text-lg font-semibold">{status}</div>
+
+      <div className="grid grid-cols-3 gap-1">
+        {squares.map((value, i) => (
+          <Square
+            key={i}
+            value={value}
+            onSquareClick={() => handleClick(i)}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
 
-const PRODUCTS = [
-  {category: "Fruits", price: "$1", stocked: true, name: "Apple"},
-  {category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit"},
-  {category: "Fruits", price: "$2", stocked: false, name: "Passionfruit"},
-  {category: "Vegetables", price: "$2", stocked: true, name: "Spinach"},
-  {category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin"},
-  {category: "Vegetables", price: "$1", stocked: true, name: "Peas"}
-];
 
 export default function App() {
-  return <FilterableProductTable products={PRODUCTS} />;
+  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const [currentMove, setCurrentMove] = useState(0);
+
+  const xIsNext = currentMove % 2 === 0;
+  const currentSquares = history[currentMove];
+
+  function handlePlay(nextSquares) {
+    const nextHistory = history
+      .slice(0, currentMove + 1)
+      .concat([nextSquares]);
+
+    setHistory(nextHistory);
+    setCurrentMove(nextHistory.length - 1);
+  }
+
+  function jumpTo(move) {
+    setCurrentMove(move);
+  }
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="flex gap-10 p-6 bg-white shadow rounded">
+        <Board
+          xIsNext={xIsNext}
+          squares={currentSquares}
+          onPlay={handlePlay}
+        />
+
+        <ol className="space-y-2">
+          {history.map((_, move) => (
+            <li key={move}>
+              <button
+                onClick={() => jumpTo(move)}
+                className="px-3 py-1 border rounded hover:bg-gray-100"
+              >
+                {move === 0 ? "Go to start" : `Go to move #${move}`}
+              </button>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  );
 }
+
+/* ---------- Winner Logic ---------- */
+function calculateWinner(squares) {
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+
+  for (let [a, b, c] of lines) {
+    if (
+      squares[a] &&
+      squares[a] === squares[b] &&
+      squares[a] === squares[c]
+    ) {
+      return squares[a];
+    }
+  }
+  return null;
+}
+
+//  function ProductCategoryRow({ category }) {
+//   return (
+//     <tr>
+//       <th colSpan="2">
+//         {category}
+//       </th>
+//     </tr>
+//   );
+// }
+
+// function ProductRow({ product }) {
+//   const name = product.stocked ? product.name :
+//     <span style={{ color: 'red' }}>
+//       {product.name}
+//     </span>;
+
+//   return (
+//     <tr>
+//       <td>{name}</td>
+//       <td>{product.price}</td>
+//     </tr>
+//   );
+// }
+
+// function ProductTable({ products }) {
+//   const rows = [];
+//   let lastCategory = null;
+
+//   products.forEach((product) => {
+//     if (product.category !== lastCategory) {
+//       rows.push(
+//         <ProductCategoryRow
+//           category={product.category}
+//           key={product.category} />
+//       );
+//     }
+//     rows.push(
+//       <ProductRow
+//         product={product}
+//         key={product.name} />
+//     );
+//     lastCategory = product.category;
+//   });
+
+//   return (
+//     <table>
+//       <thead>
+//         <tr>
+//           <th>Name</th>
+//           <th>Price</th>
+//         </tr>
+//       </thead>
+//       <tbody>{rows}</tbody>
+//     </table>
+//   );
+// }
+
+// function SearchBar() {
+//   return (
+//     <form>
+//       <input type="text" placeholder="Search..." />
+//       <label>
+//         <input type="checkbox" />
+//         {' '}
+//         Only show products in stock
+//       </label>
+//     </form>
+//   );
+// }
+
+// function FilterableProductTable({ products }) {
+//    const [filterText, setFilterText] = useState('');
+//    const [inStockOnly, setInStockOnly] = useState(false);
+//   return (
+//     <div>
+//   <SearchBar 
+//     filterText={filterText} 
+//     inStockOnly={inStockOnly} />
+//   <ProductTable 
+//     products={products}
+//     filterText={filterText}
+//     inStockOnly={inStockOnly} />
+// </div>
+//   );
+// }
+
+// const PRODUCTS = [
+//   {category: "Fruits", price: "$1", stocked: true, name: "Apple"},
+//   {category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit"},
+//   {category: "Fruits", price: "$2", stocked: false, name: "Passionfruit"},
+//   {category: "Vegetables", price: "$2", stocked: true, name: "Spinach"},
+//   {category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin"},
+//   {category: "Vegetables", price: "$1", stocked: true, name: "Peas"}
+// ];
+
+// export default function App() {
+//   return <FilterableProductTable products={PRODUCTS} />;
+// }
