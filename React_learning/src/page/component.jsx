@@ -562,8 +562,13 @@ export default function Barinda(){
   return <button>send data</button>
 };
 
-function FilterableProductTable(){
-
+function FilterableProductTable({products}){
+ return(
+  <div>
+    <SearchBar />
+    <ProductTable products={products} />
+  </div>
+ )
 }
 
 function ProductTable({products}){
