@@ -435,117 +435,120 @@ import  { useState } from "react";
 
 
 
-function Square({ value, onSquareClick }) {
-  return (
-    <button
-      onClick={onSquareClick}
-      className="w-16 h-16 border border-gray-500 text-2xl font-bold flex items-center justify-center hover:bg-gray-100"
-    >
-      {value}
-    </button>
-  );
-}
+// function Square({ value, onSquareClick }) {
+//   return (
+//     <button
+//       onClick={onSquareClick}
+//       className="w-16 h-16 border border-gray-500 text-2xl font-bold flex items-center justify-center hover:bg-gray-100"
+//     >
+//       {value}
+//     </button>
+//   );
+// }
 
 
-function Board({ xIsNext, squares, onPlay }) {
-  function handleClick(i) {
-    if (calculateWinner(squares) || squares[i]) return;
+// function Board({ xIsNext, squares, onPlay }) {
+//   function handleClick(i) {
+//     if (calculateWinner(squares) || squares[i]) return;
 
-    const nextSquares = squares.slice();
-    nextSquares[i] = xIsNext ? "X" : "O";
-    onPlay(nextSquares);
-  }
+//     const nextSquares = squares.slice();
+//     nextSquares[i] = xIsNext ? "X" : "O";
+//     onPlay(nextSquares);
+//   }
 
-  const winner = calculateWinner(squares);
-  const status = winner
-    ? `Winner: ${winner}`
-    : `Next player: ${xIsNext ? "X" : "O"}`;
+//   const winner = calculateWinner(squares);
+//   const status = winner
+//     ? `Winner: ${winner}`
+//     : `Next player: ${xIsNext ? "X" : "O"}`;
 
-  return (
-    <div>
-      <div className="mb-4 text-lg font-semibold">{status}</div>
+//   return (
+//     <div>
+//       <div className="mb-4 text-lg font-semibold">{status}</div>
 
-      <div className="grid grid-cols-3 gap-1">
-        {squares.map((value, i) => (
-          <Square
-            key={i}
-            value={value}
-            onSquareClick={() => handleClick(i)}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
+//       <div className="grid grid-cols-3 gap-1">
+//         {squares.map((value, i) => (
+//           <Square
+//             key={i}
+//             value={value}
+//             onSquareClick={() => handleClick(i)}
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
 
 
-export default function App() {
-  const [history, setHistory] = useState([Array(9).fill(null)]);
-  const [currentMove, setCurrentMove] = useState(0);
+// export default function App() {
+//   const [history, setHistory] = useState([Array(9).fill(null)]);
+//   const [currentMove, setCurrentMove] = useState(0);
 
-  const xIsNext = currentMove % 2 === 0;
-  const currentSquares = history[currentMove];
+//   const xIsNext = currentMove % 2 === 0;
+//   const currentSquares = history[currentMove];
 
-  function handlePlay(nextSquares) {
-    const nextHistory = history
-      .slice(0, currentMove + 1)
-      .concat([nextSquares]);
+//   function handlePlay(nextSquares) {
+//     const nextHistory = history
+//       .slice(0, currentMove + 1)
+//       .concat([nextSquares]);
 
-    setHistory(nextHistory);
-    setCurrentMove(nextHistory.length - 1);
-  }
+//     setHistory(nextHistory);
+//     setCurrentMove(nextHistory.length - 1);
+//   }
 
-  function jumpTo(move) {
-    setCurrentMove(move);
-  }
+//   function jumpTo(move) {
+//     setCurrentMove(move);
+//   }
 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="flex gap-10 p-6 bg-white shadow rounded">
-        <Board
-          xIsNext={xIsNext}
-          squares={currentSquares}
-          onPlay={handlePlay}
-        />
+//   return (
+//     <div className="min-h-screen flex items-center justify-center bg-gray-50">
+//       <div className="flex gap-10 p-6 bg-white shadow rounded">
+//         <Board
+//           xIsNext={xIsNext}
+//           squares={currentSquares}
+//           onPlay={handlePlay}
+//         />
 
-        <ol className="space-y-2">
-          {history.map((_, move) => (
-            <li key={move}>
-              <button
-                onClick={() => jumpTo(move)}
-                className="px-3 py-1 border rounded hover:bg-gray-100"
-              >
-                {move === 0 ? "Go to start" : `Go to move #${move}`}
-              </button>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </div>
-  );
-}
+//         <ol className="space-y-2">
+//           {history.map((_, move) => (
+//             <li key={move}>
+//               <button
+//                 onClick={() => jumpTo(move)}
+//                 className="px-3 py-1 border rounded hover:bg-gray-100"
+//               >
+//                 {move === 0 ? "Go to start" : `Go to move #${move}`}
+//               </button>
+//             </li>
+//           ))}
+//         </ol>
+//       </div>
+//     </div>
+//   );
+// }
 
-/* ---------- Winner Logic ---------- */
-function calculateWinner(squares) {
-  const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-  ];
+// /* ---------- Winner Logic ---------- */
+// function calculateWinner(squares) {
+//   const lines = [
+//     [0, 1, 2],
+//     [3, 4, 5],
+//     [6, 7, 8],
+//     [0, 3, 6],
+//     [1, 4, 7],
+//     [2, 5, 8],
+//     [0, 4, 8],
+//     [2, 4, 6],
+//   ];
 
-  for (let [a, b, c] of lines) {
-    if (
-      squares[a] &&
-      squares[a] === squares[b] &&
-      squares[a] === squares[c]
-    ) {
-      return squares[a];
-    }
-  }
-  return null;
-}
+//   for (let [a, b, c] of lines) {
+//     if (
+//       squares[a] &&
+//       squares[a] === squares[b] &&
+//       squares[a] === squares[c]
+//     ) {
+//       return squares[a];
+//     }
+//   }
+//   return null;
+// }
+export default function Barinda(){
+  return <button>send data</button>
+};
