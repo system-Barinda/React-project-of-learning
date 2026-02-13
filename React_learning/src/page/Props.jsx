@@ -1,7 +1,7 @@
-import cards from "../components/Cards"
+import Cards from "../components/Cards"
 
 export default function DesplayData(){
     return (
-        <cards />
+        <Cards  />
     )
 }
