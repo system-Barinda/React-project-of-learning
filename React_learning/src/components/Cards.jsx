@@ -1,7 +1,7 @@
 export default function cards(){
     return(
         <div>
-            dalkjdljalkdjaljl
+            <p>my name is barinda system sylvere</p>
         </div>
     )
 }
