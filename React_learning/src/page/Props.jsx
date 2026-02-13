@@ -19,8 +19,11 @@ useEffect(() => {
             why:err.reason});
         }
     }
+    getData();
 })
+
     return (
-        <Cards  />
+
+        <Cards key={product.id} value={product} />
     )
 }
