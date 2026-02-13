@@ -1,10 +1,10 @@
-export default function Card() {
+export default function Card({props}) {
   return (
     <div className="max-w-sm bg-slate-300 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl mx-auto transition-shadow">
       
       {/* Image */}
       <img
-        src=""
+        src={props.image}
         alt="Product"
         className="w-full h-48 object-cover bg-gray-200"
       />
@@ -13,7 +13,7 @@ export default function Card() {
       <div className="p-4 space-y-2">
         
         <h2 className="text-lg font-semibold text-gray-800">
-          Product Title
+          Product Title {props.title}
         </h2>
 
         <p className="text-blue-600 font-bold text-lg">
