@@ -16,7 +16,7 @@ export default function DisplayData() {
         const data = await response.json();
         setProducts(data);
       } catch (err) {
-        
+
         setError("Something went wrong");
       }
     };
@@ -33,6 +33,8 @@ export default function DisplayData() {
       {products.map((product) => (
         <Cards key={product.id} value={product} />
       ))}
-    </div>
+    </div> 
+ 
+   
   );
 }
