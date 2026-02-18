@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import Interactive from "./page/Interactive"
+import LightSwitch from "./page/LightSwitch"
 
 import './App.css'
 
 function App(){
   return (
     <>
-     <Interactive/>
+     <LightSwitch/>
     </>
   );
 }
