@@ -136,15 +136,36 @@ import { useEffect, useRef, useState } from "react";
 //     )
 // }
 
-export default function Interactive(){
-    const input = useRef(null);
+// export default function Interactive(){
+//     const input = useRef(null);
   
        
 
-    return(
-        <div>
-            <input  ref={input} />
-            <button onClick={() => input.current.focus()}> click to get input</button>
-        </div>
-    )
+//     return(
+//         <div>
+//             <input  ref={input} />
+//             <button onClick={() => input.current.focus()}> click to get input</button>
+//         </div>
+//     )
+// }
+
+export default function Interactive() {
+  const intervalRef = useRef(null);
+
+  const start = () => {
+    intervalRef.current = setInterval(() => {
+      console.log("running...");
+    }, 1000);
+  };
+
+  const stop = () => {
+    clearInterval(intervalRef.current);
+  };
+
+  return (
+    <>
+      <button onClick={start}>Start</button>
+      <button onClick={stop}>Stop</button>
+    </>
+  );
 }
