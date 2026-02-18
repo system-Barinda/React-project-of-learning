@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import DesplayData from './page/Props';
+import Interactive from "./page/Interactive"
 
 import './App.css'
 
 function App(){
   return (
     <>
-     <DesplayData />
+     <Interactive/>
     </>
   );
 }
