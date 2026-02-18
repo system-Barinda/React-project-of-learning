@@ -19,16 +19,27 @@ import { useRef, useState } from "react";
 //   );
 // }
 
-export default function Interactive(){
- const inputRef = useRef(null);
+// export default function Interactive(){
+//  const inputRef = useRef(null);
 
- const focusInput = () => {
-    inputRef.current.focus();
- }
+//  const focusInput = () => {
+//     inputRef.current.focus();
+//  }
+//     return(
+//         <div>
+//             <input ref={inputRef} />
+//             <button onClick={focusInput}>focus</button>
+//         </div>
+//     )
+// };
+
+export default function Interactive(){
     return(
         <div>
-            <input ref={inputRef} />
-            <button onClick={focusInput}>focus</button>
+            <button>click</button>
+
+            <p>count:</p>{}
         </div>
     )
-};
+}
+
