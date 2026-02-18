@@ -117,21 +117,34 @@ import { useEffect, useRef, useState } from "react";
 //     </div>
 //   );
 // }
-export default function Interactive(){
-    const[count,setCount] = useState(0);
-    const preveCount = useRef(null);
+// export default function Interactive(){
+//     const[count,setCount] = useState(0);
+//     const preveCount = useRef(null);
 
-    useEffect(() => {
-        preveCount.current = count
+//     useEffect(() => {
+//         preveCount.current = count
        
-    },[count]);
+//     },[count]);
+
+//     return(
+//         <>
+//          <p>current:{count}</p>
+//          <p>previous:{preveCount.current}</p>
+
+//          <button onClick={() => setCount(count + 1)}>click</button>
+//         </>
+//     )
+// }
+
+export default function Interactive(){
+    const input = useRef(null);
+  
+       
 
     return(
-        <>
-         <p>current:{count}</p>
-         <p>previous:{preveCount.current}</p>
-
-         <button onClick={() => setCount(count + 1)}>click</button>
-        </>
+        <div>
+            <input  ref={input} />
+            <button onClick={() => input.current.focus()}> click to get input</button>
+        </div>
     )
 }
