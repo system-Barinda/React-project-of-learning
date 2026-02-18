@@ -149,23 +149,31 @@ import { useEffect, useRef, useState } from "react";
 //     )
 // }
 
-export default function Interactive() {
-  const intervalRef = useRef(null);
+// export default function Interactive() {
+//   const intervalRef = useRef(null);
 
-  const start = () => {
-    intervalRef.current = setInterval(() => {
-      console.log("running...");
-    }, 1000);
-  };
+//   const start = () => {
+//     intervalRef.current = setInterval(() => {
+//       console.log("running...");
+//     }, 1000);
+//   };
 
-  const stop = () => {
-    clearInterval(intervalRef.current);
-  };
+//   const stop = () => {
+//     clearInterval(intervalRef.current);
+//   };
 
-  return (
-    <>
-      <button onClick={start}>Start</button>
-      <button onClick={stop}>Stop</button>
-    </>
-  );
+//   return (
+//     <>
+//       <button onClick={start}>Start</button>
+//       <button onClick={stop}>Stop</button>
+//     </>
+//   );
+// }
+
+export default function Interactive(){
+    return(
+        <div>
+            
+        </div>
+    )
 }
