@@ -122,9 +122,10 @@ export default function Interactive(){
     const preveCount = useRef(null);
 
     useEffect(() => {
-        preveCount.current = count;
+        preveCount.current = count
+       
     },[count]);
-    
+
     return(
         <>
          <p>current:{count}</p>
