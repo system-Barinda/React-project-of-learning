@@ -171,9 +171,26 @@ import { useEffect, useRef, useState } from "react";
 // }
 
 export default function Interactive(){
+    const[result,setResult] = useState(null);
+    const num1 = useRef(null);
+    const num2 = useRef(null);
+
+    const handleResult = (){
+
+    };
     return(
-        <div>
-            
+        <div className="mx-auto h-100 w-200  shadow-2xl">
+            <form onSubmit={handleResult}>
+
+                <input type="number"
+                  className="border m-5 outline h-10 w-[80%]"
+                   />
+                <input type="number"  
+                className="border m-5 outline h-10 w-[80%]"
+                 />
+                <input type="submit"  className="border m-5 outline h-10 w-[80%]" />
+                
+            </form>
         </div>
     )
 }
