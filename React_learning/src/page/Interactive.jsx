@@ -1,11 +1,20 @@
+import { useState } from "react";
 
 export default function Interactive(){
-    const handlebutton = () => {
-        console.log('my name is barinda system sylvere');
+    const[data,setData] = useState([]);
+   const names = "barinda system sylvere";
+
+    const handlebutton = (prev) => {
+     
+     setData(names);
     }
     return(
-        <>
-          <button onClick={handlebutton}>add barinda</button>
-        </>
+        <div>
+        <button onClick={handlebutton}>add barinda</button>
+        
+        {data.forEach((el,indes) => (
+            <button key={indes}>el</button>
+        ))}
+        </div>
     )
 }
