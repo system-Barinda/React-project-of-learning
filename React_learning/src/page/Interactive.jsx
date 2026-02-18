@@ -33,13 +33,30 @@ import { useRef, useState } from "react";
 //     )
 // };
 
-export default function Interactive(){
-    return(
-        <div>
-            <button>click</button>
+// export default function Interactive(){
+//     const count = useRef(0);
+//    const increment = () => {
+//      count.current += 1;
+//    }
+//    console.log(count.current);
+//     return(
+//         <div>
+//             <button onClick={increment}>click</button>
 
-            <p>count:</p>{}
-        </div>
-    )
+//             <p>count:</p>
+//         </div>
+//     )
+// }
+
+
+export default function Interactive() {
+  const countRef = useRef(0);
+
+  const increment = () => {
+    countRef.current += 1;
+    console.log(countRef.current);
+  };
+
+  return <button onClick={increment}>Click</button>;
 }
 
