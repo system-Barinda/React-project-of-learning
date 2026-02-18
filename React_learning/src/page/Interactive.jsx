@@ -76,25 +76,44 @@ import { useEffect, useRef, useState } from "react";
 //     )
 // }
 
-export default function Interactive(){
-    const[count,setCount] = useState(0);
-    const preve = useRef(null);
+// export default function Interactive(){
+//     const[count,setCount] = useState(0);
+//     const preve = useRef(null);
     
     
-        useEffect(() => {
-            preve.current = count;
-            setCount(count + 1);
-        },[count])
-    const handleIncrement = () => {
-        setCount(count + 1);
-    }
-    return(
+//         useEffect(() => {
+//             preve.current = count;
+//             setCount(count + 1);
+//         },[count])
+//     const handleIncrement = () => {
+//         setCount(count + 1);
+//     }
+//     return(
        
 
-        <div className="h-200 w-300 bg-amber-300">
-         <button  className=" h-20 w-50 border" onClick={handleIncrement}>increment</button>
-         <p>Current: {count}</p>
-         <p>Previous: {preve.current}</p>
-         </div>
-    )
-}
+//         <div className="h-200 w-300 bg-amber-300">
+//          <button  className=" h-20 w-50 border" onClick={handleIncrement}>increment</button>
+//          <p>Current: {count}</p>
+//          <p>Previous: {preve.current}</p>
+//          </div>
+//     )
+// }
+
+
+
+// export default function Interactive() {
+//   const [count, setCount] = useState(0);
+//   const prevCount = useRef(null);
+
+//   useEffect(() => {
+//     prevCount.current = count;
+//   }, [count]);
+
+//   return (
+//     <div>
+//       <p>Current: {count}</p>
+//       <p>Previous: {prevCount.current}</p>
+//       <button onClick={() => setCount(count + 1)}>+</button>
+//     </div>
+//   );
+// }
