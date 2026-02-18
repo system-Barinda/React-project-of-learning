@@ -4,6 +4,9 @@ export default function LightSwitch() {
 
     bodyStyle.backgroundColor =
       bodyStyle.backgroundColor === "black" ? "white" : "black";
+      if(bodyStyle.backgroundColor === 'black'){
+        bodyStyle.color === 'white'
+      }
   }
 
   return (
