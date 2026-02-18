@@ -20,10 +20,15 @@ import { useRef, useState } from "react";
 // }
 
 export default function Interactive(){
-    const myRef = useRef(initiation);
-    console.log(myRef)
+ const inputRef = useRef(null);
+
+ const focusInput = () => {
+    inputRef.current.focus();
+ }
     return(
-        <>
-        </>
+        <div>
+            <input ref={inputRef} />
+            <button onClick={focusInput}>focus</button>
+        </div>
     )
-}
+};
