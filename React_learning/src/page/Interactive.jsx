@@ -175,22 +175,29 @@ export default function Interactive(){
     const num1 = useRef(null);
     const num2 = useRef(null);
 
-    const handleResult = (){
-
+    const handleResult = (e) => {
+      e.preventDefault();
+      const n1 = Number(num1.current.value);
+      const n2 = Number(num2.current.value);
+      setResult(n1 + n2);
     };
+    console.log(result);
     return(
         <div className="mx-auto h-100 w-200  shadow-2xl">
             <form onSubmit={handleResult}>
 
                 <input type="number"
+                  ref={num1}
                   className="border m-5 outline h-10 w-[80%]"
                    />
                 <input type="number"  
+                ref={num2}
                 className="border m-5 outline h-10 w-[80%]"
                  />
                 <input type="submit"  className="border m-5 outline h-10 w-[80%]" />
                 
             </form>
+            <p>{result !== null && <h1>the result:{result}</h1>}</p>
         </div>
     )
 }
