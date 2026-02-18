@@ -1,20 +1,20 @@
 import { useState } from "react";
 
-export default function Interactive(){
-    const[data,setData] = useState([]);
-   const names = "barinda system sylvere";
+export default function Interactive() {
+  const [data, setData] = useState([]);
+  const name = "barinda system sylvere";
 
-    const handlebutton = (prev) => {
-     
-     setData(names);
-    }
-    return(
-        <div>
-        <button onClick={handlebutton}>add barinda</button>
-        
-        {data.forEach((el,indes) => (
-            <button key={indes}>el</button>
-        ))}
-        </div>
-    )
+  const handleButton = () => {
+    setData(prev => [...prev, name]); 
+  };
+
+  return (
+    <div>
+      <button onClick={handleButton}>add barinda</button>
+
+      {data.map((el, index) => (
+        <button key={index}>{el}</button>
+      ))}
+    </div>
+  );
 }
