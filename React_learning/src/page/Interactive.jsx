@@ -49,14 +49,29 @@ import { useRef, useState } from "react";
 // }
 
 
-export default function Interactive() {
-  const countRef = useRef(0);
+// export default function Interactive() {
+//   const countRef = useRef(0);
 
-  const increment = () => {
-    countRef.current += 1;
-    console.log(countRef.current);
-  };
+//   const increment = () => {
+//     countRef.current += 1;
+//     console.log(countRef.current);
+//   };
 
-  return <button onClick={increment}>Click</button>;
+//   return <button onClick={increment}>Click</button>;
+// }
+
+
+export default function Interactive(){
+    const countRef = useRef(0);
+    const handleClick = () => {
+        countRef.current += 2;
+    }
+    console.log(countRef.current)
+    return(
+        <div className="h-200 w-300 bg-amber-300">
+       <button className=" h-20 w-50 border" onClick={handleClick}>add number</button>
+
+       {countRef.current}
+        </div>
+    )
 }
-
