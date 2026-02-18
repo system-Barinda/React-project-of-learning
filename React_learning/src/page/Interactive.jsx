@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // export default function Interactive() {
 //   const [data, setData] = useState([]);
@@ -79,13 +79,22 @@ import { useRef, useState } from "react";
 export default function Interactive(){
     const[count,setCount] = useState(0);
     const preve = useRef(null);
-
+    
+    
+        useEffect(() => {
+            preve.current = count;
+            setCount(count + 1);
+        },[count])
+    const handleIncrement = () => {
+        setCount(count + 1);
+    }
     return(
        
 
         <div className="h-200 w-300 bg-amber-300">
-         <button  className=" h-20 w-50 border">increment</button>
-         the number:{count}
+         <button  className=" h-20 w-50 border" onClick={handleIncrement}>increment</button>
+         <p>Current: {count}</p>
+         <p>Previous: {preve.current}</p>
          </div>
     )
 }
