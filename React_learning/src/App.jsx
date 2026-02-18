@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import LightSwitch from "./page/LightSwitch"
+import LightSwitch from "./page/Signup"
 
 import './App.css'
 
