@@ -61,17 +61,31 @@ import { useRef, useState } from "react";
 // }
 
 
-export default function Interactive(){
-    const countRef = useRef(0);
-    const handleClick = () => {
-        countRef.current += 2;
-    }
-    console.log(countRef.current)
-    return(
-        <div className="h-200 w-300 bg-amber-300">
-       <button className=" h-20 w-50 border" onClick={handleClick}>add number</button>
+// export default function Interactive(){
+//     const countRef = useRef(0);
+//     const handleClick = () => {
+//         countRef.current += 2;
+//     }
+//     console.log(countRef.current)
+//     return(
+//         <div className="h-200 w-300 bg-amber-300">
+//        <button className=" h-20 w-50 border" onClick={handleClick}>add number</button>
 
-       {countRef.current}
-        </div>
+//        {countRef.current}
+//         </div>
+//     )
+// }
+
+export default function Interactive(){
+    const[count,setCount] = useState(0);
+    const preve = useRef(null);
+
+    return(
+       
+
+        <>
+         <button>increment</button>
+         the number:
+         </>
     )
 }
