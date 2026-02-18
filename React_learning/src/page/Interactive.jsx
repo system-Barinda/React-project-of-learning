@@ -83,9 +83,9 @@ export default function Interactive(){
     return(
        
 
-        <>
-         <button>increment</button>
-         the number:
-         </>
+        <div className="h-200 w-300 bg-amber-300">
+         <button  className=" h-20 w-50 border">increment</button>
+         the number:{count}
+         </div>
     )
 }
