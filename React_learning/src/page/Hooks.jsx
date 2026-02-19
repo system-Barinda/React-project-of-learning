@@ -192,9 +192,14 @@ export default function FetchDataUsedUseReduce(){
       }
       fetchData();
   },[]);
+  const {loading,error,data} = state;
+  console.log(data);
     return(
         <>
-        <h1>barinda system sylvere</h1>
+        <h1>users got</h1>
+        {loading && <p> loading..........</p>}
+        {error && <p className="text-red-600">{error}</p>}
+          <center>list of users <hr /></center>
         </>
     )
 }
