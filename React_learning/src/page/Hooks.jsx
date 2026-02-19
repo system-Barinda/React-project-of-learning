@@ -25,13 +25,7 @@ const Button = React.memo(({ onClick }) => {
   console.log("Button rendered");
   return <button onClick={onClick}>Click me</button>;
 });
-const GetData = async() => {
-  useEffect(() => {
-        try{
-            const data = await Primse.all[]
-        }
-  },[count])
-}
+
 
 export default function App() {
   const [count, setCount] = useState(0);
