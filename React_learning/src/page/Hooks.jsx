@@ -44,29 +44,42 @@ import React, { useState, useCallback } from "react";
 //   );
 // }
 
-const Button = React.memo(({ onClick }) => {
-  return (
-    <button
-      onClick={onClick}
-      className="h-20 w-32 bg-amber-700 text-slate-600"
-    >
-      Click me
-    </button>
-  );
-});
-export default function App(){
-    const[count,setCount] = useState(0);
-    const increment = useCallback(() => {
-        setCount(count + 1);
-    },[count]);
-    const handleClick = () => {
-        alert('barinda system sylvere')
-    }
-    console.log(count);
+// const Button = React.memo(({ onClick }) => {
+//   return (
+//     <button
+//       onClick={onClick}
+//       className="h-20 w-32 bg-amber-700 text-slate-600"
+//     >
+//       Click me
+//     </button>
+//   );
+// });
+// export default function App(){
+//     const[count,setCount] = useState(0);
+//     const increment = useCallback(() => {
+//         setCount(count + 1);
+//     },[count]);
+//     const handleClick = () => {
+//         alert('barinda system sylvere')
+//     }
+//     console.log(count);
+//     return(
+//         <div className="h-100 w-200 bg-green-300 text-white mx-auto">
+//            <Button onClick={handleClick} />
+//           <button onClick={increment}>increment</button>
+//         </div>
+//     )
+// }
+
+export default function Counter(){
     return(
-        <div className="h-100 w-200 bg-green-300 text-white mx-auto">
-           <Button onClick={handleClick} />
-          <button onClick={increment}>increment</button>
-        </div>
+        <>
+      <button onClick={() => {
+        dispatch({ type: 'incremented_age' })
+      }}>
+        Increment age
+      </button>
+      <p>Hello! You are {state.age}.</p>
+    </>
     )
 }
