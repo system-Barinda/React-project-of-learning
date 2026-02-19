@@ -71,25 +71,44 @@ import React, { useState, useCallback, useReducer } from "react";
 //     )
 // }
 
-function reducer(state, action) {
-  if (action.type === 'incremented_age') {
-    return {
-      age: state.age + 1
-    };
-  }
-  throw Error('Unknown action.');
-}
+// function reducer(state, action) {
+//   if (action.type === 'incremented_age') {
+//     return {
+//       age: state.age + 1
+//     };
+//   }
+//   throw Error('Unknown action.');
+// }
+// export default function Counter() {
+//   const [state, dispatch] = useReducer(reducer, { age: 42 });
+
+//   return (
+//     <>
+//       <button onClick={() => {
+//         dispatch({ type: 'incremented_age' })
+//       }}>
+//         Increment age
+//       </button>
+//       <p>Hello! You are {state.age}.</p>
+//     </>
+//   );
+// }
+
+
 export default function Counter() {
   const [state, dispatch] = useReducer(reducer, { age: 42 });
+  const handleClick = () => {
+    dispatch({type:'barinda'});
+  }
+  
 
   return (
     <>
-      <button onClick={() => {
-        dispatch({ type: 'incremented_age' })
-      }}>
+      <button className="border" onClick={handleClick}>
         Increment age
       </button>
       <p>Hello! You are {state.age}.</p>
     </>
   );
 }
+
