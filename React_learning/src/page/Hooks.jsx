@@ -44,16 +44,20 @@ import React, { useState, useCallback } from "react";
 //   );
 // }
 
-const Button = React.memo(({handleClick}) => {
-    const handleClic = () => {
-        console.log('barinda');
-    }
-   return(<button className="h-20 w-30 bg-amber-700 text-slate-600">
-    
-   </button>)
-
+const Button = React.memo(({ onClick }) => {
+  return (
+    <button
+      onClick={onClick}
+      className="h-20 w-32 bg-amber-700 text-slate-600"
+    >
+      Click me
+    </button>
+  );
 });
 export default function App(){
+    const handleClick = () => {
+        alert('barinda system sylvere')
+    }
     return(
         <div className="h-100 w-200 bg-green-300 text-white mx-auto">
            <Button onClick={handleClick} />
