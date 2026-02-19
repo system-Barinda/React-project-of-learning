@@ -44,6 +44,15 @@ import React, { useState, useCallback } from "react";
 //   );
 // }
 
+const Button = React.memo(({handleClick}) => {
+    const handleClic = () => {
+        console.log('barinda');
+    }
+   return(<button className="h-20 w-30 bg-amber-700 text-slate-600">
+    
+   </button>)
+
+});
 export default function App(){
     return(
         <div className="h-100 w-200 bg-green-300 text-white mx-auto">
