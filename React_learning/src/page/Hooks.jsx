@@ -127,7 +127,11 @@ const intialstatus = {
     num:0
 }
 const reducer = (count,action) => {
- 
+   switch(action.type){
+    case 'increment' : return {num:count.num + 1 }
+    case 'dicrement' : return {num:count.num - 1}
+    default:return count;
+   }
 }
 export default function Barinda(){
     const[count,dispatch] = useReducer(reducer,intialstatus)
