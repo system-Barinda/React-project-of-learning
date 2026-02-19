@@ -94,21 +94,32 @@ import React, { useState, useCallback, useReducer } from "react";
 //   );
 // }
 
+const reducer = (state,act) => {
+  if(act.type === 'barinda') {return { age:state.age + 1};}
+  else if(act.type === 'decrement') {return {age:state.age - 1};}
+  throw Error('unknown type');
+}
 
 export default function Counter() {
   const [state, dispatch] = useReducer(reducer, { age: 42 });
   const handleClick = () => {
     dispatch({type:'barinda'});
   }
-  
+  const handleClickDcrement = () => {
+     dispatch({type:'decrement'});
+  }
+
 
   return (
-    <>
+    <div className=" flex gap-2">
       <button className="border" onClick={handleClick}>
         Increment age
       </button>
+      <button className="border" onClick={handleClickDcrement}>
+       decrement age
+      </button>
       <p>Hello! You are {state.age}.</p>
-    </>
+    </div>
   );
 }
 
