@@ -124,9 +124,13 @@ import React, { useState, useCallback, useReducer } from "react";
 // }
 
 export default function Barinda(){
+    const[count,dispatch] = useReducer(reducer,intialstatus)
 return(
-    <>
-     
-    </>
+    <div className="  mx-auto m-10 bg-sky-200 shadow h-100 w-100">
+         <button className="border h-10 w-20" onClick={increment}>+</button>
+         <button className="border h-10 w-20 ml-5"onClick={dicrement}>+</button>
+
+         <div className="h-30 w-30 mx-auto  shadow-lg shadow-green-500 mt-10 "></div>
+    </div>
 )
 }
