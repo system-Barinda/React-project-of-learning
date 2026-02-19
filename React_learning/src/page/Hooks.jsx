@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useReducer } from "react";
+import React, { useState, useCallback, useReducer, useEffect } from "react";
 
 
 // function Button ({onClick}){
@@ -173,6 +173,25 @@ const reducer = async (state,action) => {
 };
 
 export default function FetchDataUsedUseReduce(){
+    const url = "https://jsonplaceholder.typicode.com/users";
+    const[state,dispatch] = useReducer(reducer,initialState);
+
+  useEffect(() => {
+      const fetchData = async() => {
+        dispatch({type:'fetch_start'});
+        try{
+            const response = await fetch(url);
+            if(!response.ok) throw new Error('failed to fetch users');
+           
+            const data = await response.json();
+             dispatch({type:'fetch_seccuess',playload:data});
+        }
+        catch(err){
+            dispatch({type:"FETCH_ERROR",playload:err.message});
+        }
+      }
+      fetchData();
+  },[]);
     return(
         <>
         <h1>barinda system sylvere</h1>
