@@ -156,3 +156,26 @@ const initialState = {
     data:[]
 };
 
+const reducer = async (state,action) => {
+    let knowntype = action.type;
+
+     try{
+          switch(knowntype){
+            case await 'fetch_start': return {...state, loading:true,error:null}
+            case await 'fetch_seccuess':return {...state,loading:true,data:action.playload}
+            case await 'fetch_error':return {...state,loading:false,error:action.playload}
+            default:return {error:error.message};
+          } ;
+     }
+     catch( error) {
+      return new Error({error:error.message});
+     }
+};
+
+export default function FetchDataUsedUseReduce(){
+    return(
+        <>
+        <h1>barinda system sylvere</h1>
+        </>
+    )
+}
