@@ -151,26 +151,28 @@ import React, { useState, useCallback, useReducer, useEffect } from "react";
 
 
 const initialState = {
-    loading:false,
-    error:null,
-    data:[]
+  loading: false,
+  error: null,
+  data: []
 };
 
-const reducer = async (state,action) => {
-    let knowntype = action.type;
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "FETCH_START":
+      return { ...state, loading: true, error: null };
 
-     try{
-          switch(knowntype){
-            case await 'fetch_start': return {...state, loading:true,error:null}
-            case await 'fetch_seccuess':return {...state,loading:true,data:action.playload}
-            case await 'fetch_error':return {...state,loading:false,error:action.playload}
-            default:return {error:error.message};
-          } ;
-     }
-     catch( error) {
-      return new Error({error:error.message});
-     }
+    case "FETCH_SUCCESS":
+      return { ...state, loading: false, data: action.payload };
+
+    case "FETCH_ERROR":
+      return { ...state, loading: false, error: action.payload };
+
+    default:
+      return state;
+  }
 };
+
+c
 
 export default function FetchDataUsedUseReduce(){
     const url = "https://jsonplaceholder.typicode.com/users";
@@ -193,13 +195,21 @@ export default function FetchDataUsedUseReduce(){
       fetchData();
   },[]);
   const {loading,error,data} = state;
-  console.log(data);
+  
     return(
         <>
         <h1>users got</h1>
         {loading && <p> loading..........</p>}
         {error && <p className="text-red-600">{error}</p>}
           <center>list of users <hr /></center>
+          <br />
+          <ul>
+        {data.map(user => (
+          <li key={user.id}>
+            {user.name} – {user.email}
+          </li>
+        ))}
+      </ul>
         </>
     )
 }
