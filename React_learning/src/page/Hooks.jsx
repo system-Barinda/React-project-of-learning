@@ -1,4 +1,4 @@
-import { useState,useCallback } from "react"
+import { useState,useCallback,React, useEffect } from "react"
 
 // function Button ({onClick}){
 //     console.log("buttone are rerendered");
@@ -25,13 +25,20 @@ const Button = React.memo(({ onClick }) => {
   console.log("Button rendered");
   return <button onClick={onClick}>Click me</button>;
 });
+const GetData = async() => {
+  useEffect(() => {
+        try{
+            const data = await Primse.all[]
+        }
+  },[count])
+}
 
 export default function App() {
   const [count, setCount] = useState(0);
 
   const handleClick = useCallback(() => {
     console.log("Button clicked");
-  }, []);
+  }, [count]);
 
   return (
     <>
