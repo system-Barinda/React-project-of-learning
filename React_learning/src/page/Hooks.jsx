@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useReducer } from "react";
 
 
 // function Button ({onClick}){
@@ -71,7 +71,16 @@ import React, { useState, useCallback } from "react";
 //     )
 // }
 
+function reducer(state,action){
+    if(action.type === 'incremented_age'){
+        return {
+            age:state.age + 1
+        }
+    }
+    throw new Error('type are not found');
+}
 export default function Counter(){
+    const [state,despatch] = useReducer(reducer,{age: 40});
     return(
         <>
       <button onClick={() => {
