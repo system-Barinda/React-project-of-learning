@@ -71,18 +71,19 @@ import React, { useState, useCallback, useReducer } from "react";
 //     )
 // }
 
-function reducer(state,action){
-    if(action.type === 'incremented_age'){
-        return {
-            age:state.age + 1
-        }
-    }
-    throw new Error('type are not found');
+function reducer(state, action) {
+  if (action.type === 'incremented_age') {
+    return {
+      age: state.age + 1
+    };
+  }
+  throw Error('Unknown action.');
 }
-export default function Counter(){
-    const [state,despatch] = useReducer(reducer,{age: 40});
-    return(
-        <>
+export default function Counter() {
+  const [state, dispatch] = useReducer(reducer, { age: 42 });
+
+  return (
+    <>
       <button onClick={() => {
         dispatch({ type: 'incremented_age' })
       }}>
@@ -90,5 +91,5 @@ export default function Counter(){
       </button>
       <p>Hello! You are {state.age}.</p>
     </>
-    )
+  );
 }
