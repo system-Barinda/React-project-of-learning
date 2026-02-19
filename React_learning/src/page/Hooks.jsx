@@ -123,28 +123,36 @@ import React, { useState, useCallback, useReducer } from "react";
 //   );
 // }
 
-const intialstatus = {
-    num:0
-}
-const reducer = (count,action) => {
-   switch(action.type){
-    case 'increment' : return {num:count.num + 1 }
-    case 'dicrement' : return {num:count.num - 1}
-    default:return count;
-   }
-}
-export default function Barinda(){
-    const[count,dispatch] = useReducer(reducer,intialstatus)
+// const intialstatus = {
+//     num:0
+// }
+// const reducer = (count,action) => {
+//    switch(action.type){
+//     case 'increment' : return {num:count.num + 1 }
+//     case 'dicrement' : return {num:count.num - 1}
+//     default:return count;
+//    }
+// }
+// export default function Barinda(){
+//     const[count,dispatch] = useReducer(reducer,intialstatus)
 
 
-    const increment = () => {dispatch({type:'increment'})}
-    const dicrement = () => {dispatch({type:'dicrement'})}
-return(
-    <div className="  mx-auto m-10 bg-sky-200 shadow h-100 w-100">
-         <button className="border h-10 w-20" onClick={increment}>+</button>
-         <button className="border h-10 w-20 ml-5"onClick={dicrement}>+</button>
+//     const increment = () => {dispatch({type:'increment'})}
+//     const dicrement = () => {dispatch({type:'dicrement'})}
+// return(
+//     <div className="  mx-auto m-10 bg-sky-200 shadow h-100 w-100">
+//          <button className="border h-10 w-20" onClick={increment}>+</button>
+//          <button className="border h-10 w-20 ml-5"onClick={dicrement}>+</button>
 
-         <div className="h-30 w-30 mx-auto  shadow-lg shadow-green-500 mt-10 text-center">{count.num}</div>
-    </div>
-)
-}
+//          <div className="h-30 w-30 mx-auto  shadow-lg shadow-green-500 mt-10 text-center">{count.num}</div>
+//     </div>
+// )
+// }
+
+
+const initialState = {
+    loading:false,
+    error:null,
+    data:[]
+};
+
