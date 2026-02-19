@@ -55,12 +55,18 @@ const Button = React.memo(({ onClick }) => {
   );
 });
 export default function App(){
+    const[count,setCount] = useState(0);
+    const increment = useCallback(() => {
+        setCount(count + 1);
+    },[count]);
     const handleClick = () => {
         alert('barinda system sylvere')
     }
+    console.log(count);
     return(
         <div className="h-100 w-200 bg-green-300 text-white mx-auto">
            <Button onClick={handleClick} />
+          <button onClick={increment}>increment</button>
         </div>
     )
 }
