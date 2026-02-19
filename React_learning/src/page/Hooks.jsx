@@ -172,7 +172,6 @@ const reducer = (state, action) => {
   }
 };
 
-c
 
 export default function FetchDataUsedUseReduce(){
     const url = "https://jsonplaceholder.typicode.com/users";
@@ -180,27 +179,30 @@ export default function FetchDataUsedUseReduce(){
 
   useEffect(() => {
       const fetchData = async() => {
-        dispatch({type:'fetch_start'});
+        dispatch({ type: "FETCH_START" });
         try{
             const response = await fetch(url);
             if(!response.ok) throw new Error('failed to fetch users');
            
             const data = await response.json();
-             dispatch({type:'fetch_seccuess',playload:data});
+             dispatch({ type: "FETCH_SUCCESS", payload: data });
         }
         catch(err){
-            dispatch({type:"FETCH_ERROR",playload:err.message});
+             dispatch({ type: "FETCH_ERROR", payload: err.message });
         }
       }
       fetchData();
   },[]);
+
+
+
   const {loading,error,data} = state;
   
     return(
         <>
         <h1>users got</h1>
-        {loading && <p> loading..........</p>}
-        {error && <p className="text-red-600">{error}</p>}
+        {setTimeout(() => { loading && <p>Loading...</p> },2000)};
+      {error && <p className="text-red-600">{error}</p>}
           <center>list of users <hr /></center>
           <br />
           <ul>
