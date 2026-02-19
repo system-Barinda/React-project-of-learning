@@ -22,24 +22,32 @@ import React, { useState, useCallback } from "react";
 
 
 
-const Button = React.memo(({ onClick }) => {
-  console.log("Button rendered");
-  return <button onClick={onClick}>Click me</button>;
-});
+// const Button = React.memo(({ onClick }) => {
+//   console.log("Button rendered");
+//   return <button onClick={onClick}>Click me</button>;
+// });
 
 
-export default function App() {
-  const [count, setCount] = useState(0);
+// export default function App() {
+//   const [count, setCount] = useState(0);
 
-  const handleClick = useCallback(() => {
-    console.log("Button clicked");
-  }, [count]);
+//   const handleClick = useCallback(() => {
+//     console.log("Button clicked");
+//   }, [count]);
 
-  return (
-    <>
-      <h1>Count: {count}</h1>
-      <Button onClick={handleClick} />
-      <button onClick={() => setCount(count + 1)}>Increase</button>
-    </>
-  );
+//   return (
+//     <>
+//       <h1>Count: {count}</h1>
+//       <Button onClick={handleClick} />
+//       <button onClick={() => setCount(count + 1)}>Increase</button>
+//     </>
+//   );
+// }
+
+export default function App(){
+    return(
+        <div className="h-100 w-200 bg-green-300 text-white mx-auto">
+           <Button onClick={handleClick} />
+        </div>
+    )
 }
