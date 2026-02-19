@@ -1,4 +1,5 @@
-import { useState,useCallback,React, useEffect } from "react"
+import React, { useState, useCallback } from "react";
+
 
 // function Button ({onClick}){
 //     console.log("buttone are rerendered");
