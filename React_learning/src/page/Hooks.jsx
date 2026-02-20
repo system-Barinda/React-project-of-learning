@@ -150,68 +150,76 @@ import React, { useState, useCallback, useReducer, useEffect } from "react";
 // }
 
 
-const initialState = {
-  loading: false,
-  error: null,
-  data: []
-};
+// const initialState = {
+//   loading: false,
+//   error: null,
+//   data: []
+// };
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "FETCH_START":
-      return { ...state, loading: true, error: null };
+// const reducer = (state, action) => {
+//   switch (action.type) {
+//     case "FETCH_START":
+//       return { ...state, loading: true, error: null };
 
-    case "FETCH_SUCCESS":
-      return { ...state, loading: false, data: action.payload };
+//     case "FETCH_SUCCESS":
+//       return { ...state, loading: false, data: action.payload };
 
-    case "FETCH_ERROR":
-      return { ...state, loading: false, error: action.payload };
+//     case "FETCH_ERROR":
+//       return { ...state, loading: false, error: action.payload };
 
-    default:
-      return state;
-  }
-};
+//     default:
+//       return state;
+//   }
+// };
 
 
-export default function FetchDataUsedUseReduce(){
-    const url = "https://jsonplaceholder.typicode.com/users";
-    const[state,dispatch] = useReducer(reducer,initialState);
+// export default function FetchDataUsedUseReduce(){
+//     const url = "https://jsonplaceholder.typicode.com/users";
+//     const[state,dispatch] = useReducer(reducer,initialState);
 
-  useEffect(() => {
-      const fetchData = async() => {
-        dispatch({ type: "FETCH_START" });
-        try{
-            const response = await fetch(url);
-            if(!response.ok) throw new Error('failed to fetch users');
+//   useEffect(() => {
+//       const fetchData = async() => {
+//         dispatch({ type: "FETCH_START" });
+//         try{
+//             const response = await fetch(url);
+//             if(!response.ok) throw new Error('failed to fetch users');
            
-            const data = await response.json();
-             dispatch({ type: "FETCH_SUCCESS", payload: data });
-        }
-        catch(err){
-             dispatch({ type: "FETCH_ERROR", payload: err.message });
-        }
-      }
-      fetchData();
-  },[]);
+//             const data = await response.json();
+//              dispatch({ type: "FETCH_SUCCESS", payload: data });
+//         }
+//         catch(err){
+//              dispatch({ type: "FETCH_ERROR", payload: err.message });
+//         }
+//       }
+//       fetchData();
+//   },[]);
 
 
 
-  const {loading,error,data} = state;
+//   const {loading,error,data} = state;
   
-    return(
-        <>
-        <h1>users got</h1>
-        {setTimeout(() => { loading && <p>Loading...</p> },2000)};
-      {error && <p className="text-red-600">{error}</p>}
-          <center>list of users <hr /></center>
-          <br />
-          <ul>
-        {data.map(user => (
-          <li key={user.id}>
-            {user.name} – {user.email}
-          </li>
-        ))}
-      </ul>
-        </>
-    )
+//     return(
+//         <>
+//         <h1>users got</h1>
+//         {setTimeout(() => { loading && <p>Loading...</p> },2000)};
+//       {error && <p className="text-red-600">{error}</p>}
+//           <center>list of users <hr /></center>
+//           <br />
+//           <ul>
+//         {data.map(user => (
+//           <li key={user.id}>
+//             {user.name} – {user.email}
+//           </li>
+//         ))}
+//       </ul>
+//         </>
+//     )
+// }
+
+export default function Input(){
+  return(
+    <>
+     <h1>barinda system sylvere</h1>
+    </>
+  )
 }
