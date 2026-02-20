@@ -221,10 +221,18 @@ export default function Input(){
   const handlebutton = () => {
     dispatch({type:'increment'});
   }
+  const handleInput = (e) => {
+    e.preventDefault();
+    dispatch({type:'input',nextName:e.target.value })
+  }
   return(
     <>
      <div className="h-100 w-100 border">
-      <input type="text" placeholder="enter name" className=" border m-5 " />
+      <input type="text" 
+      placeholder="enter name" 
+      className=" border m-5 " 
+      value={state.name1} 
+      onChange={handleInput} />
       <button className="border" onClick={handlebutton}>incement age</button>
 
       <br />
