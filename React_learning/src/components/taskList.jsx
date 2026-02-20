@@ -1,13 +1,13 @@
 export default function TaskList({ tasks }) {
   const taskLists = tasks.map((list) => {
     return (
-      <li key={list.id}>{list.name}</li>
+      <li key={list.id}>{list.text}</li>
       
     );
   });
 
   return (
-    <div className="border">
+    <div className="">
       <ul>
         {taskLists}
       </ul>
