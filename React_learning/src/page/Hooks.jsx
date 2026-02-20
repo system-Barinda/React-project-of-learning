@@ -220,44 +220,46 @@ function reducer(state, action) {
   switch (action.type) {
     case 'incremented_age': {
       return {
-        name1: state.name1,
+        name: state.name,
         age: state.age + 1
       };
     }
     case 'changed_name': {
       return {
-        name1: action.nextName,
+        name: action.nextName,
         age: state.age
       };
     }
   }
   throw Error('Unknown action: ' + action.type);
 }
-export default function Input(){
-  const[state,dispatch] = useReducer(reducer,{age:20,name1:"barinda"});
-  const handlebutton = () => {
-    dispatch({type:'increment'});
+
+const initialState = { name: 'Taylor', age: 42 };
+
+export default function Form() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  function handleButtonClick() {
+    dispatch({ type: 'incremented_age' });
   }
-  const handleInput = (e) => {
-    dispatch({type:'input',nextName:e.target.value })
+
+  function handleInputChange(e) {
+    dispatch({
+      type: 'changed_name',
+      nextName: e.target.value
+    }); 
   }
-  return(
+
+  return (
     <>
-     <div className="h-100 w-100 border">
-      <input type="text" 
-      placeholder="enter name" 
-      className=" border m-5 " 
-      value={state.name1} 
-      onChange={handleInput} />
-      <button className="border" onClick={handlebutton}>incement age</button>
-
-      <br />
-
-      <div className="result shadow-2xl bg-blue-200 text-white text-center">
-        {state.name1 !== '' && <p>{state.name1}</p>}
-        {state.age !== '' && <p>increment age:{state.age}</p>}
-      </div>
-     </div>
+      <input
+        value={state.name}
+        onChange={handleInputChange}
+      />
+      <button onClick={handleButtonClick}>
+        Increment age
+      </button>
+      <p>Hello, {state.name}. You are {state.age}.</p>
     </>
-  )
+  );
 }
