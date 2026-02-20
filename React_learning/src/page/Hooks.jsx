@@ -217,6 +217,7 @@ import React, { useState, useCallback, useReducer, useEffect } from "react";
 // }
 
 export default function Input(){
+  const[state,dispatch] = useReducer(reducer,{age:20,name1:"barinda"});
   return(
     <>
      <div className="h-100 w-100 border">
@@ -226,7 +227,8 @@ export default function Input(){
       <br />
 
       <div className="result shadow-2xl bg-blue-200 text-white text-center">
-
+        {state.name !== '' && <p>{state.name}</p>}
+        {state.age !== '' && <p>increment age:{state.age}</p>}
       </div>
      </div>
     </>
