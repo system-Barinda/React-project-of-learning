@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { createTodos } from './utils.js';
-import TodoList from './TodoList.js';
+import { createTodos } from '../data/utils.js';
+import TodoList from '../components/TodoList.jsx';
 
 const todos = createTodos();
 
-export default function App() {
+export default function UseMemo() {
   const [tab, setTab] = useState('all');
   const [isDark, setIsDark] = useState(false);
   return (
