@@ -216,13 +216,29 @@ import React, { useState, useCallback, useReducer, useEffect } from "react";
 //     )
 // }
 
+function reducer(state, action) {
+  switch (action.type) {
+    case 'incremented_age': {
+      return {
+        name1: state.name1,
+        age: state.age + 1
+      };
+    }
+    case 'changed_name': {
+      return {
+        name1: action.nextName,
+        age: state.age
+      };
+    }
+  }
+  throw Error('Unknown action: ' + action.type);
+}
 export default function Input(){
   const[state,dispatch] = useReducer(reducer,{age:20,name1:"barinda"});
   const handlebutton = () => {
     dispatch({type:'increment'});
   }
   const handleInput = (e) => {
-    e.preventDefault();
     dispatch({type:'input',nextName:e.target.value })
   }
   return(
@@ -238,7 +254,7 @@ export default function Input(){
       <br />
 
       <div className="result shadow-2xl bg-blue-200 text-white text-center">
-        {state.name !== '' && <p>{state.name}</p>}
+        {state.name1 !== '' && <p>{state.name1}</p>}
         {state.age !== '' && <p>increment age:{state.age}</p>}
       </div>
      </div>
