@@ -1,5 +1,5 @@
 import TaskList from "../components/taskList"
-// import AddTask from "../components/AddTask"
+import {initialTasks} from "../data/initialTasks"
 import { useReducer } from "react";
 let nextId = 0;
 
@@ -20,6 +20,8 @@ const handleAddTask = () => {
         <div className="mx-auto border h-100 w-200 shadow">
        
        <TaskList tasks={tasks} />
+       
         </div>
+        
     )
 }
