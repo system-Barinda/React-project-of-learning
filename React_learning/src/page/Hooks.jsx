@@ -218,11 +218,14 @@ import React, { useState, useCallback, useReducer, useEffect } from "react";
 
 export default function Input(){
   const[state,dispatch] = useReducer(reducer,{age:20,name1:"barinda"});
+  const handlebutton = () => {
+    dispatch({type:'increment'});
+  }
   return(
     <>
      <div className="h-100 w-100 border">
       <input type="text" placeholder="enter name" className=" border m-5 " />
-      <button className="border">incement age</button>
+      <button className="border" onClick={handlebutton}>incement age</button>
 
       <br />
 
