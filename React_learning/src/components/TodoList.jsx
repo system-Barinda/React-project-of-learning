@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { filterTodos } from './utils.js'
+import { filterTodos } from '../data/utils.jsx'
 
 export default function TodoList({ todos, theme, tab }) {
   const visibleTodos = useMemo(
