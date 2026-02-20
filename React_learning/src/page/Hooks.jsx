@@ -219,7 +219,16 @@ import React, { useState, useCallback, useReducer, useEffect } from "react";
 export default function Input(){
   return(
     <>
-     <h1>barinda system sylvere</h1>
+     <div className="h-100 w-100 border">
+      <input type="text" placeholder="enter name" className=" border m-5 " />
+      <button className="border">incement age</button>
+
+      <br />
+
+      <div className="result shadow-2xl bg-blue-200 text-white text-center">
+
+      </div>
+     </div>
     </>
   )
 }
