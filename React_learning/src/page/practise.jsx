@@ -52,8 +52,25 @@ export default function Barinda(){
     </div>
 );
 return(
-    <>
-     {allCantact}
-    </>
+    <main className="p-10">
+            {/* 1. The Form */}
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-10 border p-5 rounded-lg">
+                <input name="firstName" placeholder="First Name" className="border p-2" required />
+                <input name="lastName" placeholder="Last Name" className="border p-2" required />
+                <input name="phone" placeholder="Phone" className="border p-2" />
+                <input name="email" type="email" placeholder="Email" className="border p-2" />
+                <button type="submit" className="bg-blue-500 text-white p-2 rounded">Update Contact</button>
+            </form>
+
+            <hr className="my-10" />
+
+            {/* 2. The Display Card */}
+            <div className="h-100 w-100 border shadow-2xl rounded-2xl p-6">
+                <h1 className="text-2xl font-bold">{contact.firstName} {contact.lastName}</h1>
+                <p>📞 {contact.phone}</p>
+                <strong>📧 {contact.email}</strong>
+                <p>Favorite: {contact.isFavorite ? "⭐️ Yes" : "☆ No"}</p>
+            </div>
+        </main>
 )
 }
