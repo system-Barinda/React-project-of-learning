@@ -56,7 +56,9 @@ export default function Barinda() {
             isFavorite: false // Defaulting to false for new entries
         };
 
-        setContact(newContact);
+        setContact(prev => { 
+    return { ...prev, ...newContact }; 
+});
         event.currentTarget.reset(); // Clears the form after submission
     }
 
