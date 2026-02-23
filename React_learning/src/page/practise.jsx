@@ -41,17 +41,16 @@ export default function Barinda(){
         isFavorite: false
     });
 
-    const allCantact = contact.map((user) => {
-        return(
-            <div className="h-100 w-100 border shadow-2xl rounded-2xl">
-                     <h1>{user.firstName}</h1>
-                     <h1>{user.lastName}</h1>
-                     <p>{user.phone}</p>
-                     <strong>{user.email}</strong>
-                     <strong>{user.isFavorite }</strong>
-            </div>
-        )
-    })
+   const allCantact = (
+    <div className="h-100 w-100 border shadow-2xl rounded-2xl">
+        <h1>{contact.firstName}</h1>
+        <h1>{contact.lastName}</h1>
+        <p>{contact.phone}</p>
+        <strong>{contact.email}</strong>
+        {/* Boolean values like isFavorite won't render; use a string or icon */}
+        <p>Favorite: {contact.isFavorite ? "Yes" : "No"}</p>
+    </div>
+);
 return(
     <>
      {allCantact}
