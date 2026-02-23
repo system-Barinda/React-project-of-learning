@@ -28,9 +28,13 @@
 //     </header>
 //   );
 // }
-
+import usercontext from "../components/componetUserContext"
+import DashBoardUseContext from "../components/DashboardUseContext";
 export default function MyComponent(){
+    const menu = ['home','service','contact','about us'];
     return(<>
-    <h1>barinda system system sylver</h1>
+      <usercontext.Provider value={menu}>
+        <DashBoardUseContext />
+      </usercontext.Provider>
     </>)
 }
