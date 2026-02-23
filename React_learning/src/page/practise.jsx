@@ -50,7 +50,21 @@ export default function Barinda(){
         {/* Boolean values like isFavorite won't render; use a string or icon */}
         <p>Favorite: {contact.isFavorite ? "Yes" : "No"}</p>
     </div>
+  
 );
+  const handleSubmit = (e) => {
+        e.preventDefault();
+        let dName = new FormData(e.currentTarget);
+        const newContact = {
+       firstName : dName.get("firstName"),
+       lastName : dName.get("lastName"),
+       phone : dName.get("phone"),
+       email : dName.get("email"),
+       
+        }   
+        setContact(newContact);
+        setContact(e.currentTarget.reset);
+    }
 return(
     <main className="p-10">
             {/* 1. The Form */}
