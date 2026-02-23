@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import React from "react";
 // export default function Barinda(){
 //     const ingredients = ["Chicken", "Oregano", "Tomatoes"];
 //     const[items,setItemes] = useState(ingredients);
