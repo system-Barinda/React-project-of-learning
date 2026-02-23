@@ -13,10 +13,9 @@ return(
 }
 
 function Dashboard(){
+    const user = useContext(UserContext);
     return(<header className="flex gap-1">
-        <div>home</div>
-        <div>home</div>
-        <div>home</div>
-        <div>home</div>
+         <h2>Welcome {user.name}</h2>
+      <p>Role: {user.role}</p>
     </header>)
 }
