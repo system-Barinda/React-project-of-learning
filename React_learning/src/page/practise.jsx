@@ -32,8 +32,10 @@ import React from "react";
 //         </>
 //     )
 // }
-export default function Barinda(){
- const [contact, setContact] = React.useState({
+
+
+export default function Barinda() {
+    const [contact, setContact] = React.useState({
         firstName: "John",
         lastName: "Doe",
         phone: "+1 (212) 555-1212",
@@ -41,32 +43,25 @@ export default function Barinda(){
         isFavorite: false
     });
 
-   const allCantact = (
-    <div className="h-100 w-100 border shadow-2xl rounded-2xl">
-        <h1>{contact.firstName}</h1>
-        <h1>{contact.lastName}</h1>
-        <p>{contact.phone}</p>
-        <strong>{contact.email}</strong>
-        {/* Boolean values like isFavorite won't render; use a string or icon */}
-        <p>Favorite: {contact.isFavorite ? "Yes" : "No"}</p>
-    </div>
-  
-);
-  const handleSubmit = (e) => {
-        e.preventDefault();
-        let dName = new FormData(e.currentTarget);
+    function handleSubmit(event) {
+        event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+        
+        // This creates a new object from the form inputs
         const newContact = {
-       firstName : dName.get("firstName"),
-       lastName : dName.get("lastName"),
-       phone : dName.get("phone"),
-       email : dName.get("email"),
-       
-        }   
+            firstName: formData.get("firstName"),
+            lastName: formData.get("lastName"),
+            phone: formData.get("phone"),
+            email: formData.get("email"),
+            isFavorite: false // Defaulting to false for new entries
+        };
+
         setContact(newContact);
-        setContact(e.currentTarget.reset);
+        event.currentTarget.reset(); // Clears the form after submission
     }
-return(
-    <main className="p-10">
+
+    return (
+        <main className="p-10">
             {/* 1. The Form */}
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-10 border p-5 rounded-lg">
                 <input name="firstName" placeholder="First Name" className="border p-2" required />
@@ -86,5 +81,5 @@ return(
                 <p>Favorite: {contact.isFavorite ? "⭐️ Yes" : "☆ No"}</p>
             </div>
         </main>
-)
+    )
 }
