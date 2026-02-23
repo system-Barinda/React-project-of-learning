@@ -11,7 +11,7 @@ export default function Barinda(){
     const handleSubmitt = (event) => {
    event.preventDefault();
    const dataForm = new FormData(event.currentTarget);
-   let newItem = dataForm.getData("item");
+   let newItem = dataForm.get("item");
    setItemes(prev => [...prev,newItem]);
     }
    
