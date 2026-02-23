@@ -88,5 +88,5 @@ import React from "react";
 
 export default function myComponent(){
     const theme = useContext(themeContext);
-    return();
+    return(<></>);
 }
