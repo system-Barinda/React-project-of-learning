@@ -12,11 +12,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.0",
-    "@babel/preset-react": "^7.28.5",
     "babel": "^6.23.0",
-    "babel-loader": "^10.0.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "webpack": "^5.105.2",
@@ -24,6 +20,10 @@
     "webpack-dev-server": "^5.2.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-react": "^7.28.5",
+    "babel-loader": "^10.0.0",
     "html-webpack-plugin": "^5.6.6"
   }
 }
