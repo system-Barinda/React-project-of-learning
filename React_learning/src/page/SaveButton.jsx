@@ -1,5 +1,7 @@
 // import { useEffect, useState } from "react"
 
+import { useEffect, useState } from "react";
+
 // export default function SaveButton(){
 //     const[isOnline,setIsOnline] = useState(true)
 
@@ -34,6 +36,31 @@
 //         <button onClick={handleBTN} className="border h-20 w-30 mx-auto">{isOnline ? '👍 online' : '❌ Desconnected'}</button>
 //     )
 // }
+
+const useOnlineStatus = () => {
+  const [isOnline,setIsOnline] = useState(true);
+  useEffect(() => {
+
+    function handleOn(){
+        setIsOnline(true);
+    }
+    function handleOf(){
+        setIsOnline(false);
+    }
+    window.addEventListener('on',handleOn);
+    window.addEventListener('off',handleOf);
+
+    return () => {
+        window.removeEventListener('on',handleOn);
+        window.removeEventListener('off',handleOf);
+    };
+
+  },[]);
+
+  return isOnline;
+}
+
+
 
 function StatusBar() {
   const isOnline = useOnlineStatus();
