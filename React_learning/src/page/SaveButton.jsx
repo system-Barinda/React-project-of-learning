@@ -37,7 +37,7 @@ import { useEffect, useState } from "react";
 //     )
 // }
 
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 const useOnlineStatus = () => {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -76,7 +76,7 @@ function SaveButton() {
   }
 
   return (
-    <button disabled={!isOnline} onClick={handleSaveClick}>
+    <button  onClick={handleSaveClick}>
       {isOnline ? "Save progress" : "Reconnecting..."}
     </button>
   );
