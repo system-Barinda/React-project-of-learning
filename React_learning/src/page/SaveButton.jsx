@@ -35,22 +35,23 @@
 //     )
 // }
 
-function statusBar(){
-    const isOnline = useOnlineStatus();
-    return <h1>{isOnline ? '✅ Online' : '❌ Disconnected'}</h1>;
+function StatusBar() {
+  const isOnline = useOnlineStatus();
+  return <h1>{isOnline ? '✅ Online' : '❌ Disconnected'}</h1>;
 }
 
-function SaveButtone(){
-    const isOnline = useOnlineStatus();
+function SaveButton() {
+  const isOnline = useOnlineStatus();
 
-    function handleSaveClick(){
-        console.log('✅ Progress saved');
-    }
+  function handleSaveClick() {
+    console.log('✅ Progress saved');
+  }
 
-    return (
+  return (
     <button disabled={!isOnline} onClick={handleSaveClick}>
       {isOnline ? 'Save progress' : 'Reconnecting...'}
     </button>
   );
 }
-export default SaveButtone
+
+export default SaveButton;
