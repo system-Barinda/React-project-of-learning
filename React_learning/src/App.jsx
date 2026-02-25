@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import LightSwitch from "./page/Form4"
+import TouchTyping from './games/TouchTyping'
 
 
 import './App.css'
@@ -7,7 +7,7 @@ import './App.css'
 function App(){
   return (
     <>
-     <LightSwitch/>
+     <TouchTyping />
     </>
   );
 }
