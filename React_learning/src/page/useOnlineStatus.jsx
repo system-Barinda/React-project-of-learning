@@ -14,4 +14,5 @@ export default function useOnlineStatus(){
             window.removeEventListener('offline',handleOffline)
          }
     },[])
+    return isOnline;
 }
