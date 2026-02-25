@@ -21,7 +21,16 @@ export default function SaveButton(){
 
     },[]);
 
+    const handleBTN = () => {
+      if(isOnline === true){
+        setIsOnline(false);
+      }
+      else{
+        setIsOnline(true)
+      }
+    }
+
     return(
-        <button className="border h-20 w-30 mx-auto">{isOnline ? '👍 online' : '❌ Desconnected'}</button>
+        <button onClick={handleBTN} className="border h-20 w-30 mx-auto">{isOnline ? '👍 online' : '❌ Desconnected'}</button>
     )
 }
