@@ -87,6 +87,11 @@ import { useEffect, useState } from "react";
 
 
 
+
+
+/* =========================
+   Custom Hook
+========================= */
 const useOnlineStatus = () => {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 
@@ -111,24 +116,23 @@ const useOnlineStatus = () => {
   return isOnline;
 };
 
-
-
+/* =========================
+   Components
+========================= */
+function StatusBar() {
+  const isOnline = useOnlineStatus();
+  return <h1>{isOnline ? "✅ Online" : "❌ Disconnected"}</h1>;
+}
 
 function SaveButton() {
-  const [isOnline,setIsOnline] = useOnlineStatus(true);
+  const isOnline = useOnlineStatus();
 
   function handleSaveClick() {
-    if(isOnline === 'true'){
-        setIsOnline(false);
-    }
-    else{
-        setIsOnline(true)
-    }
+    console.log("✅ Progress saved");
   }
 
-
   return (
-    <button  onClick={handleSaveClick}>
+    <button disabled={!isOnline} onClick={handleSaveClick}>
       {isOnline ? "Save progress" : "Reconnecting..."}
     </button>
   );
