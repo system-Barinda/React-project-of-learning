@@ -52,14 +52,15 @@ export default function Main() {
 
     return (
         <main>
-            <form action={addIngredient} className="add-ingredient-form">
+            <form action={addIngredient} className="add-ingredient-form shadow-2xs bg-slate-400 h-10 w-100">
                 <input
                     type="text"
                     placeholder="e.g. oregano"
                     aria-label="Add ingredient"
                     name="ingredient"
+                    className="border h-10 outline-0 mr-2"
                 />
-                <button>Add ingredient</button>
+                <button className="border mx-auto">Add ingredient</button>
             </form>
             
             {ingredients.length > 0 && <section>
