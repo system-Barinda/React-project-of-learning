@@ -1,7 +1,7 @@
-export default function Button({ users }) {
+export default function Button({ value }) {
   return (
     <>
-      {users.map(user => (
+      {value.map(user => (
         <button
           key={user.id}
           className="border h-30 w-40"
