@@ -16,10 +16,8 @@ export default function App() {
   const [btn, setBtn] = useState(buttonsData);
 
   const ap = btn.map(user => (
-    // <button key={user.id} className="border h-30 w-40 ">
-    //   {user.on ? "ON" : "OFF"}
-    // </button>
-    <Button value ={user}/>
+    
+    <Button key={user.id} value ={user}/>
   ));
 
   return <>{ap}</>;
