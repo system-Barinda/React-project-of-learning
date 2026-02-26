@@ -9,15 +9,15 @@ export default function App() {
       <button
         key={padItem.id}
         style={{ backgroundColor: padItem.color }}
-        className="m-2 p-4"
+        className="m-2 p-4 h-40 w-40"
       >
-        {padItem.text}
+        {padItem.on}
       </button>
     );
   });
 
   return (
-    <div className="bg-green-300 w-full h-full text-center mx-auto">
+    <div className="bg-green-200 w-full h-full text-center mx-auto">
       {allPads}
     </div>
   );
