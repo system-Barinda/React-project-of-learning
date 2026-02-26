@@ -10,7 +10,7 @@ export default function Main() {
         "tomato paste"
     ])
     const [recipeShown, setRecipeShown] = React.useState(false)
-
+console.log("barinda")
     function toggleRecipeShown() {
         setRecipeShown(prev => !prev)
     }
