@@ -1,5 +1,7 @@
-export default function Button(){
+export default function Button(value){
+    const [id,color,on] = value
+    console.log(id)
     return(
-        <button className="border h-30 w-40 "></button>
+        <button key={value.id} className="border h-30 w-40 ">{}</button>
     )
 }

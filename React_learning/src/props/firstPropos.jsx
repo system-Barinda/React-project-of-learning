@@ -19,7 +19,7 @@ export default function App() {
     // <button key={user.id} className="border h-30 w-40 ">
     //   {user.on ? "ON" : "OFF"}
     // </button>
-    <Button />
+    <Button value ={user}/>
   ));
 
   return <>{ap}</>;
