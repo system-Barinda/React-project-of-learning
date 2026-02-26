@@ -5,7 +5,7 @@ import Padd from "./Padd";
 export default function App() {
   const [pad, setPad] = useState(pads);
 
-  const allPads = pad.map((padItem) => {
+  const buttonElements = pad.map((padItem) => {
     return (
     //   <button
     //     key={padItem.id}
@@ -14,13 +14,15 @@ export default function App() {
     //   >
     //     {padItem.on}
     //   </button>
-    <Padd key={padItem.id} value={padItem} />
+    <Padd key={pad.id} color={pad.color} on={pad.on}/>
     );
   });
 
   return (
-    <div className="bg-green-200 w-full h-full text-center mx-auto">
-      {allPads}
-    </div>
+    <main>
+            <div className="pad-container">
+                {buttonElements}
+            </div>
+        </main>
   );
 }
