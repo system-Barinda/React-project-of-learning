@@ -1,5 +1,9 @@
-export default function Padd(){
+export default function Padd(props){
+    console.log(props)
     return(
-        <button></button>
+        <button 
+            style={{backgroundColor: props.color}}
+            className={props.on ? "on" : undefined}
+        ></button>
     )
 }
