@@ -1,6 +1,14 @@
-export default function Button(value){
-   
-    return(
-        <button className="border h-30 w-40 ">{value.value.on ? "done" : "not yet done"}</button>
-    )
+export default function Button({ users }) {
+  return (
+    <>
+      {users.map(user => (
+        <button
+          key={user.id}
+          className="border h-30 w-40"
+        >
+          {user.on ? "done" : "not yet done"}
+        </button>
+      ))}
+    </>
+  )
 }
