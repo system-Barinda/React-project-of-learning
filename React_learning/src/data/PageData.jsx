@@ -27,7 +27,7 @@ function getImageUrl(person){
 
 export default function PageData(){
     const listItem = people.map(person => 
-        <li key={person.id}>
+        <li key={crypto.getRandomValues}>
             <img src={getImageUrl(person)} alt={person.name} />
             <p><b>{person.name}</b> known for {person.accomplishment}</p>
         </li>
