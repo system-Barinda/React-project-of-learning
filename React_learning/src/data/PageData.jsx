@@ -24,3 +24,15 @@ import thee from "./th.jpg"
 function getImageUrl(person){
     return 'http://i.imgur.com/' + person.imageId + 's.jpg'
 }
+
+export default function PageData(){
+    const listItem = people.map(person => 
+        <li key={person.id}>
+            <img src={getImageUrl(person)} alt={person.name} />
+            <p><b>{person.name}</b> known for {person.accomplishment}</p>
+        </li>
+    )
+    return(
+        <ul>{listItem}</ul>
+    )
+}
