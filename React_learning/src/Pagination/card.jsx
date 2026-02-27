@@ -1,5 +1,5 @@
 export default function Card(props){
-    const product = props.data.map((user) => {
+    const proje = props.data.map((user) => {
        return(<li key={user.id}>{user.name}</li>)
     })
     return(
