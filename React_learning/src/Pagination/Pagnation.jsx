@@ -7,7 +7,8 @@ export default function Pagination() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const[currentPage,setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 6; // how many products per page
 
     useEffect(() => {
         const fetchData = async () => {
@@ -34,17 +35,20 @@ export default function Pagination() {
     if (loading) return <h2>Loading...</h2>;
     if (error) return <h2>Error: {error}</h2>;
 
+    // 🔥 Pagination Logic
+    const totalPages = Math.ceil(data.length / itemsPerPage);
 
-    const itemParPage = 6;
-    const totalPage = Math.ceil(data.length / itemParPage);
-    const startIndex = (currentPage - 1) * itemParPage
-    const endIndex = startIndex + itemParPage
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
 
+    const currentItems = data.slice(startIndex, endIndex);
 
-    currentPage = data.slice(startIndex,endIndex);
+    return (
+        <div>
+            <Card data={currentItems} />
 
-
-    return  <div className="flex justify-center gap-4 mt-6">
+            {/* Pagination Buttons */}
+            <div className="flex justify-center gap-4 mt-6">
                 <button
                     onClick={() => setCurrentPage(prev => prev - 1)}
                     disabled={currentPage === 1}
@@ -63,5 +67,8 @@ export default function Pagination() {
                     className="px-4 py-2 bg-gray-300 rounded disabled:opacity-50"
                 >
                     Next
-                </button></div>
+                </button>
+            </div>
+        </div>
+    );
 }
