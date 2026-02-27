@@ -1,1 +1,3 @@
-export default const url = "https://fakestoreapi.com/products"
+const url = "https://fakestoreapi.com/products";
+
+export default url;
