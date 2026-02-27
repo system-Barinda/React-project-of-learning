@@ -11,11 +11,19 @@ export default function UserPagnation(){
    const startIndex = (currentPage - 1) * itemParPage;
    const endIndex =  startIndex + itemParPage;
 
-   currentItem = data.slice(startIndex,endIndex);
-   
-   return(
-    <>
+   const currentItem = data.slice(startIndex,endIndex);
+
+   return(<>
+    <div className="flex">
        <CardUser user={currentItem} />
-    </>
-   )
+
+       
+    </div>
+
+    <div className="shadow-2xs h-20 w-80 mx-auto bg-gray-300 mt-10 flx items-center justify-center">
+     <button className="m-5 border h-10 w-10"> ⬅️</button>
+     <span className="border">page  of </span>
+     <button className="m-5 border h-10 w-10"> ➡️ </button>
+    </div>
+   </>)
 }
