@@ -7,6 +7,8 @@ export default function Pagination() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const[currentPage,setCurrentPage] = useState(1);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -32,5 +34,13 @@ export default function Pagination() {
     if (loading) return <h2>Loading...</h2>;
     if (error) return <h2>Error: {error}</h2>;
 
+
+    const itemParPage = 6;
+    const totalPage = Math.ceil(data.length / itemParPage);
+    const startIndex = (currentPage - 1) * itemParPage
+    const endIndex = startIndex + itemParPage
+
+
+    currentPage = data.slice(startIndex,endIndex);
     return <Card data={data} />;
 }
