@@ -21,6 +21,6 @@ export default function Pagnation(){
          fechData()
     },[])
     return(
-        <Card props ={data}/>
+        <Card data={data} />
     )
 }
