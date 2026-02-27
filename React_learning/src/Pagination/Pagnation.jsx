@@ -42,5 +42,26 @@ export default function Pagination() {
 
 
     currentPage = data.slice(startIndex,endIndex);
-    return <Card data={data} />;
+
+
+    return  <div className="flex justify-center gap-4 mt-6">
+                <button
+                    onClick={() => setCurrentPage(prev => prev - 1)}
+                    disabled={currentPage === 1}
+                    className="px-4 py-2 bg-gray-300 rounded disabled:opacity-50"
+                >
+                    Previous
+                </button>
+
+                <span className="px-4 py-2">
+                    Page {currentPage} of {totalPages}
+                </span>
+
+                <button
+                    onClick={() => setCurrentPage(prev => prev + 1)}
+                    disabled={currentPage === totalPages}
+                    className="px-4 py-2 bg-gray-300 rounded disabled:opacity-50"
+                >
+                    Next
+                </button></div>
 }
