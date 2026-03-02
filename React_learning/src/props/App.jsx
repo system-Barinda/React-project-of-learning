@@ -1,10 +1,23 @@
-import UserCard from "./UserCard";
+// import UserCard from "./UserCard";
 
-export default function App() {
-  return (
+// export default function App() {
+//   return (
+//     <UserCard 
+//       name="Sylvere"
+//       age={21}
+//     />
+//   );
+// }
+
+
+import UserCard from "./UserCard"
+
+export default function App(){
+  return(
     <UserCard 
-      name="Sylvere"
-      age={21}
+    name="barinda"
+    age={20}
+    location="muhanga"
     />
-  );
+  )
 }
