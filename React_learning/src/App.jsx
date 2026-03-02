@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import TouchTyping from './Pagination/UserPagnation'
+import TouchTyping from './props/App'
 
 
 import './App.css'
