@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 function App() {
   const [users, setUsers] = useState([]);
-  const [page, setPage] = useState(1); // current page
+  const [page, setPage] = useState(1); 
   const [loading, setLoading] = useState(true);
-  const [totalPages, setTotalPages] = useState(1); // optional for API with total count
+  const [totalPages, setTotalPages] = useState(1); 
 
   const limit = 5; // users per page
 
@@ -12,7 +12,7 @@ function App() {
     async function fetchPage() {
       setLoading(true);
       try {
-        // FakeStoreAPI doesn't have pagination, so this is just illustrative
+        
         const res = await fetch(`https://fakestoreapi.com/users`);
         if (!res.ok) throw new Error('Failed to fetch');
         const data = await res.json();
@@ -23,7 +23,7 @@ function App() {
 
         setUsers(pageData);
 
-        // set total pages based on data length
+        
         setTotalPages(Math.ceil(data.length / limit));
       } catch (err) {
         console.log(err.message);
