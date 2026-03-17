@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 
 function App() {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1); // current page
   const [loading, setLoading] = useState(true);
-  const [totalPages, setTotalPages] = useState(1); // if API provides total pages
+  const [totalPages, setTotalPages] = useState(1); // optional for API with total count
 
   const limit = 5; // users per page
 
@@ -13,15 +12,19 @@ function App() {
     async function fetchPage() {
       setLoading(true);
       try {
-        // Replace URL with your API that supports page & limit
-        const res = await fetch(`https://fakestoreapi.com/users?limit=${limit}&page=${page}`);
+        // FakeStoreAPI doesn't have pagination, so this is just illustrative
+        const res = await fetch(`https://fakestoreapi.com/users`);
         if (!res.ok) throw new Error('Failed to fetch');
         const data = await res.json();
 
-        setUsers(data);
+        // manual pagination
+        const start = (page - 1) * limit;
+        const pageData = data.slice(start, start + limit);
 
-        // If API provides total items, you can calculate totalPages
-        // For example: setTotalPages(Math.ceil(totalItems / limit));
+        setUsers(pageData);
+
+        // set total pages based on data length
+        setTotalPages(Math.ceil(data.length / limit));
       } catch (err) {
         console.log(err.message);
       } finally {
@@ -30,29 +33,46 @@ function App() {
     }
 
     fetchPage();
-  }, [page]); // run whenever page changes
+  }, [page]);
 
   return (
-    <div className="App">
-      <h1>Users (Page {page})</h1>
+    <div className="min-h-screen bg-gray-100 p-6">
+      <div className="max-w-2xl mx-auto bg-white p-6 rounded shadow">
+        <h1 className="text-2xl font-bold mb-4 text-center">Users (Page {page})</h1>
 
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <ul>
-          {users.map(user => (
-            <li key={user.id}>{user.username}</li>
-          ))}
-        </ul>
-      )}
+        {loading ? (
+          <p className="text-center text-gray-500">Loading...</p>
+        ) : (
+          <ul className="space-y-4">
+            {users.map(user => (
+              <li
+                key={user.id}
+                className="p-4 bg-gray-50 rounded shadow hover:bg-gray-100 transition"
+              >
+                <p className="font-medium">{user.username}</p>
+                <p className="text-gray-500">{user.email}</p>
+              </li>
+            ))}
+          </ul>
+        )}
 
-      <div className="pagination">
-        <button onClick={() => setPage(prev => Math.max(prev - 1, 1))} disabled={page === 1}>
-          Previous
-        </button>
-        <button onClick={() => setPage(prev => prev + 1)} disabled={page === totalPages}>
-          Next
-        </button>
+        {/* Pagination Buttons */}
+        <div className="flex justify-center mt-6 space-x-2">
+          <button
+            onClick={() => setPage(prev => Math.max(prev - 1, 1))}
+            disabled={page === 1}
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition"
+          >
+            Previous
+          </button>
+          <button
+            onClick={() => setPage(prev => Math.min(prev + 1, totalPages))}
+            disabled={page === totalPages}
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition"
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );
