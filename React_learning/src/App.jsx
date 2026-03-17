@@ -1,13 +1,12 @@
-import { useState } from 'react'
-import TouchTyping from './props/App'
 
+import UserPageLoading from './page/UserPageLoading';
 
 import './App.css'
 
 function App(){
   return (
     <>
-     <TouchTyping />
+     <UserPageLoading />
     </>
   );
 }
