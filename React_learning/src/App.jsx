@@ -13,7 +13,7 @@ function App() {
       setLoading(true);
       try {
         
-        const res = await fetch(`https://fakestoreapi.com/users`);
+        const res = await fetch(`https://randomuser.me/api/?results=200`);
         if (!res.ok) throw new Error('Failed to fetch');
         const data = await res.json();
 
