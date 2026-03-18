@@ -5,9 +5,12 @@ import App from './App.jsx'
 
 import {configureStore} from "@reduxjs/toolkit"
 import {Provider} from "react-redux"
+import UserReducer from "./features/Users.jsx"
 
 const store = configureStore({
-  reducer:{}
+  reducer:{
+    user:UserReducer
+  }
 });
 
 createRoot(document.getElementById('root')).render(
