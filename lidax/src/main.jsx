@@ -6,10 +6,12 @@ import App from './App.jsx'
 import {configureStore} from "@reduxjs/toolkit"
 import {Provider} from "react-redux"
 import UserReducer from "./features/BarindaUsers.jsx"
+import themeReducer from "./features/theme.jsx"
 
 const store = configureStore({
   reducer:{
-    user:UserReducer
+    user:UserReducer,
+    theme:themeReducer
   }
 });
 
