@@ -1,13 +1,12 @@
 import { useState } from 'react'
-import Profile from "./components/Profile"
-import Login  from './components/Login'
+import Barinda from './components/Barinda'
 import './App.css'
 
 function App() {
   
   return (
     <>
-      <Profile />
+      <Barinda />
       <Login />
      
     </>
