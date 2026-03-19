@@ -6,10 +6,11 @@ const barindaSlice = createSlice({
     reducers: {
         barindaLoginUser: (state, action) => {
             state.value = action.payload;
-        }
+        },
+        barindaLogoutUser:(state) => {state.value = {name: "", age: 0, email: ""}}
     }
 });
 
 
-export const { barindaLoginUser } = barindaSlice.actions;
+export const { barindaLoginUser,barindaLogoutUser } = barindaSlice.actions;
 export default barindaSlice.reducer;

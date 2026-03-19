@@ -7,6 +7,8 @@ export default function Barinda(){
         <h1>the page of barinda</h1>
         <div>
          the name:{userBarinda.name}
+         <br />
+         <strong>email:{userBarinda.email}</strong>
         </div>
         </>
     )
