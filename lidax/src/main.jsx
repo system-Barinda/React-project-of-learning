@@ -5,7 +5,7 @@ import App from './App.jsx'
 
 import {configureStore} from "@reduxjs/toolkit"
 import {Provider} from "react-redux"
-import UserReducer from "./features/Users.jsx"
+import UserReducer from "./features/BarindaUsers.jsx"
 
 const store = configureStore({
   reducer:{
