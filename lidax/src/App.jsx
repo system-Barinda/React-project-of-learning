@@ -1,14 +1,13 @@
 import { useState } from 'react'
 import './App.css'
-import UserPage from './pages/userPage'
-import ButtonLogin from './pages/ButtonLogin'
+
+import Control from './Operation/Control'
 
 function App() {
   
   return (
     <>
-     <UserPage />
-     <ButtonLogin />
+     <Control />
      
     </>
   )
