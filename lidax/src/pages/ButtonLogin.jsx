@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { login } from "../features/Peaple"; // adjust path if needed
+import { login } from "../features/Peaple"; 
 
 export default function ButtonLogin() {
   const dispatch = useDispatch();
@@ -14,9 +14,22 @@ export default function ButtonLogin() {
     dispatch(login(userData));
   };
 
-  return (
+    const handleLogout = () => {
+    const userData = {
+      name: "",
+      age: 0,
+      email: ""
+    };
+
+    dispatch(login(userData));
+  };
+  return (<div>
     <button onClick={handleLogin}>
       Login
     </button>
+    <button onClick={handleLogout}>
+      Logout
+    </button>
+    </div>
   );
 }
