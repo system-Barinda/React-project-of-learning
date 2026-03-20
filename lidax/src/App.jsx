@@ -3,19 +3,22 @@ import './App.css'
 import Control from './Operation/Control'
 import {configureStore} from "@reduxjs/toolkit"
 import {Provider} from "react-redux"
+import userSlicer  from "./features/Peaple"
 export const store = configureStore({
   reducer:{
-    reducers:useReducer
+    reducers:userSlicer
   }
 })
 
 function App() {
   
   return (
-    <>
+  
+    <Provider store={store}>
      <Control />
+     </Provider>
      
-    </>
+    
   )
 }
 
