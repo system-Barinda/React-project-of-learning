@@ -2,7 +2,7 @@ import { useState } from "react";
 import AddStudent from "./pages/AddStudent";
 
 function App() {
-  const [showForm, setShowForm] = useState(true);
+  const [showForm, setShowForm] = useState(false); // ❌ was true
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
@@ -38,7 +38,7 @@ function App() {
         ) : (
           <div className="w-full max-w-md bg-white p-6 rounded-xl shadow-md text-center">
             <h2 className="text-xl font-semibold text-gray-700">
-              Student List Coming Soon...
+              Click "Add Student" to open the form
             </h2>
           </div>
         )}
