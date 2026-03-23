@@ -1,33 +1,42 @@
-import {createStore} from "react-redux"
+import { createStore } from "redux";
 
-export default function App(){
+export default function App() {
 
-  const test_cake = 'done to buy it';
-  
+  const TEST_CAKE = 'TEST_CAKE';
+
   const initialState = {
-    numOfCakeTest : 20,
+    numOfCakeTest: 20,
   };
 
-  function Test_Cake(){
-    return{
-      type:test_cake,
-      info:'done only'
+  function Test_Cake() {
+    return {
+      type: TEST_CAKE,
+      info: 'done only'
+    };
+  }
+
+  const reducer = (state = initialState, action) => {
+    switch (action.type) {
+      case TEST_CAKE:
+        return {
+          ...state,
+          numOfCakeTest: state.numOfCakeTest - 1
+        };
+      default:
+        return state;
     }
-  }
+  };
 
+  const store = createStore(reducer);
 
+  console.log("Before:", store.getState());
 
-  const reducer = (state = initialState,action) => {
-      switch(action.type){
-        case test_cake:return{ ...state,numOfCakeTest:numOfCakeTest - 1};
-        default: return state;
-      }
-  }
   
+  store.dispatch(Test_Cake());
 
-  return(
+  console.log("After:", store.getState());
+
+  return (
     <h1>barinda system sylvere</h1>
-  )
+  );
 }
-
-const store = createStore(reducer)
