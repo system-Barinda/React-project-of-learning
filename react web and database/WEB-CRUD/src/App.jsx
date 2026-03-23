@@ -1,9 +1,18 @@
 function App(){
   const buy_cake = 'barinda system sylvere';
+
+  const initialState = {
+    numOfCakes:10,
+  };
+    
+  const reducer =(state,action) ={
+
+  };
+  
    function barindaCake(){
     return{
       type:buy_cake,
-      type1:'done to update it',
+      info:'done to update it',
     };
    }
    console.log(barindaCake().type);
