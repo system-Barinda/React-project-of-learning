@@ -1,19 +1,21 @@
 import { createContext } from "react";
-import ContextApi1 from "./contextApi/ContextApi1"
+import ContextApi1 from "./contextApi/ContextApi1";
 
-function App(){
+
+export const ContextApi = createContext(null);
+
+function App() {
   const data = {
-    name:"person",
-    location:"done",
-    country:"Rwanda"
+    name: "person",
+    location: "done",
+    country: "Rwanda"
   };
 
-  const contextApi = createContext(null);
-  return(
-    <contextApi.Provider value={data}>
+  return (
+    <ContextApi.Provider value={data}>
       <ContextApi1 />
-
-    </contextApi.Provider>
-  )
+    </ContextApi.Provider>
+  );
 }
+
 export default App;
