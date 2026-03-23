@@ -1,3 +1,4 @@
+import {createStore} from "redux";
 function App(){
   const getMoney = "withdraws";
 
@@ -22,7 +23,12 @@ const reducer = (state = initialState, actions) => {
      }
 }
 
+const store = createStore(reducer);
 
+console.log('the initial value of state',store.getState());
+store.dispatch(AccessWithdraws());
+store.dispatch(AccessWithdraws());
+ console.log('updated',store.getState())
 
   return(
     <h1>barinda</h1>
