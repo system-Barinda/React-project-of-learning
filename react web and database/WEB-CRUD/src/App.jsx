@@ -1,3 +1,5 @@
+import {createStore} from "react-redux"
+
 export default function App(){
 
   const test_cake = 'done to buy it';
@@ -8,7 +10,7 @@ export default function App(){
 
   function Test_Cake(){
     return{
-      type:'done to update the current',
+      type:test_cake,
       info:'done only'
     }
   }
@@ -17,12 +19,15 @@ export default function App(){
 
   const reducer = (state = initialState,action) => {
       switch(action.type){
-        case Test_Cake:return{ ...state,numOfCakeTest:numOfCakeTest - 1};
+        case test_cake:return{ ...state,numOfCakeTest:numOfCakeTest - 1};
         default: return state;
       }
   }
+  
 
   return(
     <h1>barinda system sylvere</h1>
   )
 }
+
+const store = createStore(reducer)
