@@ -1,23 +1,42 @@
-function App(){
-  const buy_cake = 'barinda system sylvere';
+function App() {
 
+  // action type (use uppercase convention)
+  const BUY_CAKE = 'BUY_CAKE';
+
+  // initial state
   const initialState = {
-    numOfCakes:10,
+    numOfCakes: 10,
   };
-    
-  const reducer =(state,action) ={
 
+  // reducer
+  const reducer = (state = initialState, action) => {
+    switch (action.type) {
+      case BUY_CAKE:
+        return {
+          ...state,
+          numOfCakes: state.numOfCakes - 1,
+        };
+
+      default:
+        return state;
+    }
   };
-  
-   function barindaCake(){
-    return{
-      type:buy_cake,
-      info:'done to update it',
+
+  // action creator
+  function barindaCake() {
+    return {
+      type: BUY_CAKE,
+      info: 'done to update it',
     };
-   }
-   console.log(barindaCake().type);
-  return(
-    <h1>barinda system sylvere</h1>
-  )
+  }
+
+  console.log(barindaCake()); // check output
+  console.log(initialState); // check output
+  console.log(reducer()); // check output
+
+  return (
+    <h1>Barinda System Sylvere</h1>
+  );
 }
+
 export default App;
