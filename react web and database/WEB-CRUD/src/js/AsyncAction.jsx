@@ -1,4 +1,7 @@
-import { createStore } from "redux"; 
+import { createStore,applyMiddleware } from "redux"; 
+import {thunkMiddleware} from "redux-thunk"
+import {axios} from "axios"
+
 
 const initialState = {
     loading: false,
@@ -38,4 +41,11 @@ const reducer = (state = initialState, action) => {
     }
 }
 
-const store = createStore(reducer);
+
+const fetchUser = () => {
+    return function(dispach){
+        
+    }
+}
+
+const store = createStore(reducer,applyMiddleware(thunkMiddleware));
