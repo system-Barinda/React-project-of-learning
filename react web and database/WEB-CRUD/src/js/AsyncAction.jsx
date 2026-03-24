@@ -44,8 +44,25 @@ const reducer = (state = initialState, action) => {
 
 const fetchUser = () => {
     return function(dispach){
-        
+        dispach(fetchUsersRequest());
+        axios.get('https://jsonplaceholder.typicode.com/users')
+        .then(res => {
+            const users = res.data.map(user => user.id);
+            dispach(fetchUsersSuccess())
+        })
+        .catch(error => {
+        dispach(fetchUserFailure(error.message))
+        });
     }
 }
 
 const store = createStore(reducer,applyMiddleware(thunkMiddleware));
+store.subscribe(() => console.log(store.getState()))
+store.dispatch(fetchUser());
+store.subscribe(() => console.log(store.getState()))
+
+export default function AsyncAction(){
+    return(
+        <h1>the page of the redux</h1>
+    )
+}
