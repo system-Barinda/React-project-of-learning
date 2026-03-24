@@ -21,3 +21,17 @@ const fetchUsersSuccess = users => {
         payLoad:users,
     }
 }
+
+const fetchUserFailure = error => {
+    return{
+        type:fetch_users_failure,
+        payLoad:error
+    }
+}
+const reducer = (state,action) => {
+    switch(action.type){
+        case fetch_users_request : return {...state,loading:true}
+        case fetch_users_success : return {loading:false,users:action.payLoad,error:''}
+        case fetch_users_failure : return {loading:false,users:[],error:action.payLoad}
+    }
+}
