@@ -1,7 +1,8 @@
-import {createStore} from "redux";
+import {combineReducers, createStore} from "redux";
 
 function App(){
   const Get_money = 'make withdraws';
+  const Keep_money = 'keep money';
 
   function withdrow(){
     return{
@@ -9,6 +10,14 @@ function App(){
       info:'the money you have is there'
     }
   }
+
+  function updateMoney(){
+    return{
+      type:Keep_money,
+      info:'you saved the money well'
+    }
+  }
+  
   const intialState = {
     amount:2000,
   };
@@ -20,15 +29,35 @@ function App(){
           ...state,
           amount:state.amount - 100
         }
+        default:return state
 
       }
   }
 
-  const store = createStore(reducer);
-  store.subscribe(() => console.log('initial money',store.getState()));
-  store.dispatch(withdrow())
-  console.log('initial money',store.getState());
+    const reducerUpdate = (state = intialState,actions) => {
+      switch(actions.type){
+        case Keep_money : 
+        return {
+          ...state,
+          amount:state.amount + 1000
+        }
+       default:return state
+      }
+  }
+
+
+  const rootStore = combineReducers({
+    withDraw:reducer,
+    save:reducerUpdate,
+  });
+  const store = createStore(rootStore);
+  store.subscribe(() =>  console.lopg('initial money',state.getState()))
+
   
+  store.dispatch(withdrow())
+  store.dispatch(updateMoney())
+  console.log('initial money',store.getState());
+
   return(
     <h1>barinda system sylvere</h1>
   )
