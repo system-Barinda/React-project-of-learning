@@ -8,7 +8,7 @@ import {axios} from "axios"
 export default function AsyncAction(){
     const initialState = {
     loading: false,
-    users: [], // Changed from [data] to empty array
+    users: [], 
     error: ''
 };
 
