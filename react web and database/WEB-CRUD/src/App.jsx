@@ -1,6 +1,8 @@
-import { combineReducers, createStore } from "redux";
+import { combineReducers, createStore ,applyMiddleware} from "redux";
+import {createLogger} from "redux-logger"
 
 function App() {
+  const Logger = createLogger();
   // 1. Define all action types
   const Get_money = 'make withdraws';
   const Keep_money = 'keep money'; // Added missing definition
@@ -56,7 +58,7 @@ function App() {
   });
 
   // 5. Create the Store using the rootReducer
-  const store = createStore(rootReducer);
+  const store = createStore(rootReducer,applyMiddleware(Logger));
 
   // 6. Test it
   console.log('Initial State:', store.getState());
