@@ -1,6 +1,7 @@
 import { combineReducers, createStore ,applyMiddleware} from "redux";
 import {createLogger} from "redux-logger"
 
+
 function App() {
   const Logger = createLogger();
   // 1. Define all action types
