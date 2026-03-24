@@ -1,6 +1,7 @@
-import { createStore, applyMiddleware } from "redux"; 
-import thunk from "redux-thunk"; // Fixed import
-import axios from "axios";       // Fixed import
+import thunk from "redux-thunk"; 
+import { createStore, applyMiddleware } from "react-redux" 
+
+import axios from "axios";       
 
 const initialState = {
   loading: false,
@@ -8,17 +9,18 @@ const initialState = {
   error: ''
 };
 
-// 1. Action Constants
+
+
 const FETCH_USERS_REQUEST = 'FETCH_USERS_REQUEST';
 const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
 const FETCH_USERS_FAILURE = 'FETCH_USERS_FAILURE';
 
-// 2. Action Creators
+
 const fetchUsersRequest = () => ({ type: FETCH_USERS_REQUEST });
 const fetchUsersSuccess = users => ({ type: FETCH_USERS_SUCCESS, payload: users });
 const fetchUserFailure = error => ({ type: FETCH_USERS_FAILURE, payload: error });
 
-// 3. Reducer
+
 const reducer = (state = initialState, action) => {
   switch(action.type) {
     case FETCH_USERS_REQUEST: return { ...state, loading: true };
@@ -28,14 +30,14 @@ const reducer = (state = initialState, action) => {
   }
 }
 
-// 4. Async Action Creator (Thunk)
+
 const fetchUsers = () => {
   return function(dispatch) {
     dispatch(fetchUsersRequest());
     axios.get('https://jsonplaceholder.typicode.com/users')
       .then(res => {
         const users = res.data.map(user => user.id);
-        dispatch(fetchUsersSuccess(users)); // Pass the data here!
+        dispatch(fetchUsersSuccess(users)); 
       })
       .catch(error => {
         dispatch(fetchUserFailure(error.message));
@@ -43,17 +45,17 @@ const fetchUsers = () => {
   }
 }
 
-// 5. Store Creation (Moved outside the component)
-const store = createStore(reducer, applyMiddleware(thunk));
+
+const store = createStore (reducer, applyMiddleware(thunk));
 
 export default function App() {
   
-  // Example of how you'd actually trigger this in React
+  
   const handleFetch = () => {
     store.dispatch(fetchUsers());
   };
 
-  // Log the state whenever it changes
+
   store.subscribe(() => console.log('State Updated:', store.getState()));
 
   return (
