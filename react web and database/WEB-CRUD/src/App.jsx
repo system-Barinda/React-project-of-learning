@@ -24,6 +24,10 @@ function App(){
       }
   }
 
+  const store = createStore(reducer);
+  store.subscribe(() => console.log('initial money',store.getState()));
+  store.dispatch(withdrow())
+  console.log('initial money',store.getState());
   
   return(
     <h1>barinda system sylvere</h1>
