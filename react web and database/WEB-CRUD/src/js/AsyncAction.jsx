@@ -1,5 +1,5 @@
-const state = {
-    loading:true,
+const initialState = {
+    loading:false,
     users:[data],
     error:''
 };
