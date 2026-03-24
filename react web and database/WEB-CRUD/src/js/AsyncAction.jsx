@@ -3,7 +3,10 @@ import {thunkMiddleware} from "redux-thunk"
 import {axios} from "axios"
 
 
-const initialState = {
+
+
+export default function AsyncAction(){
+    const initialState = {
     loading: false,
     users: [], // Changed from [data] to empty array
     error: ''
@@ -60,8 +63,6 @@ const store = createStore(reducer,applyMiddleware(thunkMiddleware));
 store.subscribe(() => console.log(store.getState()))
 store.dispatch(fetchUser());
 store.subscribe(() => console.log(store.getState()))
-
-export default function AsyncAction(){
     return(
         <h1>the page of the redux</h1>
     )
