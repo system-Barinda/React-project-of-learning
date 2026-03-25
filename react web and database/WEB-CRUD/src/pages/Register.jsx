@@ -2,6 +2,7 @@ import { useState } from "react";
 import { css } from "../../styled-system/css";
 import { stack } from "../../styled-system/patterns";
 import axios from "axios"
+
 export default function Register() {
   const [user, setUser] = useState({
     username: "",
@@ -13,7 +14,7 @@ export default function Register() {
     await  axios.post('http://localhost:5000/api/auth/register',user);
     alert('Registered');
   };
-  
+
 
 
 
