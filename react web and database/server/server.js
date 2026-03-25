@@ -1,14 +1,13 @@
+import express from "express"
+import cors from 'cors'
+import authRoutes from "./routes/authRoutes.js";
 
-import express from 'express';
-import cors from "cors"
 const app = express();
-const PORT = 5000;
+app.use(cors());
+app.use(express.json());
 
-app.use(cors())
-app.get('/api/users', (req, res) => {
-  res.json({ users: ['Alice', 'Bob', 'Charlie'] });
-});
+app.use("/api/auth",authRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(5000,() => {
+  console.log("server running on port 5000");
 });
