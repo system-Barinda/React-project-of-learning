@@ -51,6 +51,10 @@ export default  function App(){
            try{
             dispatch(fetchUserRequest());
             const res = await fetch('https://jsonplaceholder.typicode.com/users');
+            if(!res.ok) dispatch(fetch_user_failure(new Error('network fail in process of fetching data')));
+            const data = await res.json();
+            const idData = data.map(user => user.id);
+            dispatch(fetchUserSuccess(idData));
            }
       };
   }
