@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { css } from "../../styled-system/css";
 import { stack } from "../../styled-system/patterns";
-
+import axios from "axios"
 export default function Register() {
   const [user, setUser] = useState({
     username: "",
@@ -9,9 +9,14 @@ export default function Register() {
     password: "",
   });
 
-  const handleSubmit = () => {
-    console.log("Registering:", user);
+  const handleSubmit = async() => {
+    await  axios.post('http://localhost:5000/api/auth/register',user);
+    alert('Registered');
   };
+  
+
+
+
 
   return (
     <div className={stack({ gap: "4", p: "6", maxWidth: "400px" })}>
