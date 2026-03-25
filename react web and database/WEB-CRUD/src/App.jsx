@@ -37,6 +37,16 @@ export default  function App(){
 
 
 
+  const reducer = (state = initialStateValue, actions) =>{
+       switch(actions.type){
+        case fetch_user_request : return {...state,loading:true}
+        case fetch_user_success : return {loading:false,users:actions.payLoad,error:''}
+        case fetch_user_failure : return {loading:false,users:[],error:actions.payLoad}
+        default: return state;
+       }
+  }
+
+
   return(
     <div>
       <button className="border h-10 w-50 m-10 cursor-pointer">get all users</button>
