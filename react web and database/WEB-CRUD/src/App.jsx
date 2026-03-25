@@ -1,5 +1,8 @@
 export default  function App(){
+
   return(
-    <h1>the good page of app</h1>
+    <div>
+      <button className="border h-10 w-50 m-10 cursor-pointer">get all users</button>
+    </div>
   )
 }
