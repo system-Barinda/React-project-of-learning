@@ -1,4 +1,14 @@
+import {createStore,applyMiddleware} from "redux";
+import { thunk} from "thunk"
+
 export default  function App(){
+
+  const initialStateValue = {
+    loading:false,
+    users:[],
+    error:""
+  };
+  
 
   return(
     <div>
