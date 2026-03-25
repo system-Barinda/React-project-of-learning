@@ -8,7 +8,34 @@ export default  function App(){
     users:[],
     error:""
   };
-  
+
+
+  const fetch_user_request = 'fetch_user_request';
+  const fetch_user_success = 'fetch_user_success';
+  const fetch_user_failure = 'fetch_user_failure';
+
+  function fetchUserRequest(){
+    return{
+      type:fetch_user_request,
+    };
+  }
+
+
+    function fetchUserSuccess(users){
+    return{
+      type:fetch_user_success,
+      payLoad:users
+    };
+  }
+
+    function fetchUserFailure(error){
+    return{
+      type:fetch_user_failure,
+      payLoad:error
+    };
+  }
+
+
 
   return(
     <div>
