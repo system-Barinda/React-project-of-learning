@@ -46,6 +46,14 @@ export default  function App(){
        }
   }
 
+  const getAllData = () => {
+      return async function(dispatch){
+           try{
+            dispatch(fetchUserRequest());
+            const res = await fetch('https://jsonplaceholder.typicode.com/users');
+           }
+      };
+  }
 
   return(
     <div>
