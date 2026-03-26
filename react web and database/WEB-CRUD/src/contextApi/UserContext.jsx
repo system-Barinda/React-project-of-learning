@@ -1,10 +1,9 @@
-import { createContext, useEffect, useState, } from "react";
-import User from "./User";
+import { createContext, useEffect, useState } from "react";
 
 // ✅ create context
 export const UserContext = createContext();
 
-export default function UserProvider() {
+export default function UserProvider({ children }) {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -34,9 +33,10 @@ export default function UserProvider() {
 
     fetchData();
   }, []);
+
   return (
-<UserContext.Provider user={users}>
-    <User />
-</UserContext.Provider>
+    <UserContext.Provider value={{ users, loading, error }}>
+      {children}
+    </UserContext.Provider>
   );
 }
