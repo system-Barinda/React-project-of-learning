@@ -1,6 +1,4 @@
-import { intialValue } from "../service/service";
-import { allFetchs } from "../service/service";
-import  rootReducer  from "../service/reducer";
+
 import GetAllData from "./GetAllData";
 export default function DashBoardRedux(){
 

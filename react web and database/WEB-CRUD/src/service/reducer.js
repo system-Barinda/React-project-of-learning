@@ -32,3 +32,18 @@ const rootReducer = (state = initialValue, action) => {
 };
 
 export default rootReducer;
+
+
+export const fetchuserrequest = () => ({
+  type: allFetchs.fetch_user_request
+});
+
+export const fetchusersuccess = (users) => ({
+  type: allFetchs.fetch_user_success,
+  payload: users
+});
+
+export const fetchuserfailure = (error) => ({
+  type: allFetchs.fetch_user_failure,
+  payload: error
+});
