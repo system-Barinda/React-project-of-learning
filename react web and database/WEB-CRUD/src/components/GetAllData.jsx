@@ -6,18 +6,33 @@ export default function GetAllData() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(dataFetch()); 
-  }, [dispatch]); 
+    dispatch(dataFetch());
+  }, [dispatch]);
 
-const {loading, users, error } = useSelector((state) => state)
+  const { loading, users, error } = useSelector((state) => state);
 
+  // ✅ Handle loading
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
 
-   return (
+  // ✅ Handle error
+  if (error) {
+    return <h2>Error: {error}</h2>;
+  }
+
+  return (
     <div>
       <h2>Users List</h2>
-      {users.map((user) => (
-        <p key={user.id}>{user.name}</p>
-      ))}
+
+      {/* ✅ Safe check */}
+      {users && users.length > 0 ? (
+        users.map((user) => (
+          <p key={user.id}>{user.name}</p>
+        ))
+      ) : (
+        <p>No users found</p>
+      )}
     </div>
   );
 }
