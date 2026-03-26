@@ -1,28 +1,12 @@
 import { fetchuserfailure, fetchuserrequest, fetchusersuccess } from "../service/reducer";
-
+import { useDispatch } from "react-redux";
+import { dataFetch } from "../service/fetchUser";
+import { useEffect } from "react";
 export default function GetAllData() {
+const dispatch = useDispatch();
+useEffect(() => {
+    dispatch(dataFetch);
+},[])
 
-  function dataFetch() {
-    return async function (dispatch) {
-      try {
-        dispatch(fetchuserrequest());
 
-        const res = await fetch('https://jsonplaceholder.typicode.com/users');
-
-        if (!res.ok) {
-          return dispatch(fetchuserfailure('Failed to get all data'));
-        }
-
-        const data = await res.json();
-
-        dispatch(fetchusersuccess(data));
-
-      } catch (err) {
-        dispatch(fetchuserfailure(err.message));
-      }
-    };
-  }
-  dataFetch();
-
-  return (<h1>done</h1>);
 }
