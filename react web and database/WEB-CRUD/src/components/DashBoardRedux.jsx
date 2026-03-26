@@ -1,9 +1,10 @@
 import { intialValue } from "../service/service";
+import { allFetchs } from "../service/service";
 export default function DashBoardRedux(){
 
-const fetch_user_request = 'fetch_user_request';
-const fetch_user_success = 'fetch_user_success';
-const fetch_user_failure = 'fetch_user_failure';
+const fetchuserrequest = () => ({type:allFetchs.fetch_user_request});
+const fetchusersuccess = user => ({type:allFetchs.fetch_user_success,payload:user});
+const fetchuserfailure = error => ({type:allFetchs.fetch_user_failure,payload:error});
 
 
     return(
