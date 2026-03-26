@@ -1,5 +1,5 @@
 import { intialValue } from "./service"
-
+import { allFetchs } from "./service"
 
 export const reducer = (state = intialValue,action) => {
     switch(action.type){
@@ -19,3 +19,9 @@ export const reducer = (state = intialValue,action) => {
         return state        
     }
 }
+
+
+export const fetchuserrequest = () => ({type:allFetchs.fetch_user_request});
+export const fetchusersuccess = user => ({type:allFetchs.fetch_user_success,payload:user});
+export const fetchuserfailure = error => ({type:allFetchs.fetch_user_failure,payload:error});
+
