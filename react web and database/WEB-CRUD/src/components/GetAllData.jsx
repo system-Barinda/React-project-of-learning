@@ -9,14 +9,17 @@ export default function GetAllData() {
     dispatch(dataFetch());
   }, [dispatch]);
 
-  const { loading, users, error } = useSelector((state) => state);
+ 
+  const loading = useSelector((state) => state.loading);
+  const users = useSelector((state) => state.users);
+  const error = useSelector((state) => state.error);
 
-  // ✅ Handle loading
+  
   if (loading) {
     return <h2>Loading...</h2>;
   }
 
-  // ✅ Handle error
+
   if (error) {
     return <h2>Error: {error}</h2>;
   }
@@ -25,7 +28,7 @@ export default function GetAllData() {
     <div>
       <h2>Users List</h2>
 
-      {/* ✅ Safe check */}
+    
       {users && users.length > 0 ? (
         users.map((user) => (
           <p key={user.id}>{user.name}</p>
