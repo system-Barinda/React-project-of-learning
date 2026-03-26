@@ -9,7 +9,7 @@ export default function GetAllData() {
     dispatch(dataFetch()); 
   }, [dispatch]); 
 
-  console.log(dispatch)
+console.log(dispatch);
 
   return <h1>Fetching users...</h1>;
 }
