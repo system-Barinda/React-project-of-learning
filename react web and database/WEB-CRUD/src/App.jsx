@@ -1,6 +1,10 @@
+import User from "./contextApi/User";
+
+
 function App(){
+
   return(
-    <h1>barinda</h1>
+  <User />
   )
 }
 export default App;
