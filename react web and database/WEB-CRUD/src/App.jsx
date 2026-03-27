@@ -1,6 +1,6 @@
 import { css } from "../styled-system/css";
 import { useState } from "react";
-import { parentDiv,parentDiv1,h1cssDiv2,inputbutton,inputLone } from "./Styles/TodoList";
+import { parentDiv,parentDiv1,h1cssDiv2,inputbutton,inputLone,buttonLone } from "./Styles/TodoList";
 
 function App() {
   const todos1 = [
@@ -66,18 +66,7 @@ function App() {
 
           <button
             onClick={handleAddTodo} 
-            className={css({
-              px: "16px",
-              py: "10px",
-              bg: "green.600",
-              color: "white",
-              borderRadius: "8px",
-              fontWeight: "bold",
-              cursor: "pointer",
-              _hover: {
-                bg: "green.700",
-              },
-            })}
+            className={css(buttonLone)}
           >
             Add
           </button>

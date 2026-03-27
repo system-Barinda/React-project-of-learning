@@ -36,3 +36,15 @@ export const inputLone = {
                 boxShadow: "0 0 0 1px var(--colors-green-500)",
  }
 }
+export const buttonLone = {
+              px: "16px",
+              py: "10px",
+              bg: "green.600",
+              color: "white",
+              borderRadius: "8px",
+              fontWeight: "bold",
+              cursor: "pointer",
+              _hover: {
+                bg: "green.700",
+        },
+}
