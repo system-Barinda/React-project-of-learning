@@ -1,5 +1,6 @@
 import { css } from "../styled-system/css";
 import { useState } from "react";
+import { parentDiv } from "./Styles/TodoList";
 
 function App() {
   const todos1 = [
@@ -40,13 +41,7 @@ function App() {
 
   return (
     <div
-      className={css({
-        minH: "100vh",
-        bg: "gray.100",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      })}
+      className={css(parentDiv)}
     >
       <div
         className={css({
