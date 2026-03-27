@@ -23,3 +23,16 @@ export const inputbutton ={
             gap: "10px",
             mb: "20px",
 }
+export const inputLone = {
+              flex: 1,
+              p: "10px",
+              borderRadius: "8px",
+              border: "1px solid",
+              borderColor: "gray.300",
+              outline: "none",
+              fontSize: "14px",
+              _focus: {
+                borderColor: "green.500",
+                boxShadow: "0 0 0 1px var(--colors-green-500)",
+ }
+}

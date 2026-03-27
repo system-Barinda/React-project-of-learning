@@ -1,6 +1,6 @@
 import { css } from "../styled-system/css";
 import { useState } from "react";
-import { parentDiv,parentDiv1,h1cssDiv2,inputbutton } from "./Styles/TodoList";
+import { parentDiv,parentDiv1,h1cssDiv2,inputbutton,inputLone } from "./Styles/TodoList";
 
 function App() {
   const todos1 = [
@@ -61,23 +61,11 @@ function App() {
             value={newTodo} // ✅ bind state
             onChange={(e) => setNewTodo(e.target.value)} // ✅ update state
             placeholder="Enter the todo you want..."
-            className={css({
-              flex: 1,
-              p: "10px",
-              borderRadius: "8px",
-              border: "1px solid",
-              borderColor: "gray.300",
-              outline: "none",
-              fontSize: "14px",
-              _focus: {
-                borderColor: "green.500",
-                boxShadow: "0 0 0 1px var(--colors-green-500)",
-              },
-            })}
+            className={css(inputLone)}
           />
 
           <button
-            onClick={handleAddTodo} // ✅ add todo
+            onClick={handleAddTodo} 
             className={css({
               px: "16px",
               py: "10px",
