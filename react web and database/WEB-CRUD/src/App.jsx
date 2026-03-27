@@ -1,6 +1,6 @@
 import { css } from "../styled-system/css";
 import { useState } from "react";
-import { parentDiv,parentDiv1,h1cssDiv2,inputbutton,inputLone,buttonLone } from "./Styles/TodoList";
+import { parentDiv,parentDiv1,h1cssDiv2,inputbutton,inputLone,buttonLone,todosDiv } from "./Styles/TodoList";
 
 function App() {
   const todos1 = [
@@ -58,8 +58,8 @@ function App() {
         >
           <input
             type="text"
-            value={newTodo} // ✅ bind state
-            onChange={(e) => setNewTodo(e.target.value)} // ✅ update state
+            value={newTodo} 
+            onChange={(e) => setNewTodo(e.target.value)} 
             placeholder="Enter the todo you want..."
             className={css(inputLone)}
           />
@@ -76,14 +76,7 @@ function App() {
         {todos.map((data) => (
           <div
             key={data.id}
-            className={css({
-              p: "12px",
-              mb: "10px",
-              borderRadius: "10px",
-              bg: data.completed ? "green.100" : "gray.50",
-              border: "1px solid",
-              borderColor: "gray.200",
-            })}
+            className={css(todosDiv)}
           >
             <h2
               className={css({
