@@ -31,6 +31,39 @@ function App() {
         justifyContent: "center",
       })}
     >
+      <input
+        type="text"
+        placeholder="Enter the todo you want..."
+        className={css({
+          flex: 1,
+          p: "10px",
+          borderRadius: "8px",
+          border: "1px solid",
+          borderColor: "gray.300",
+          outline: "none",
+          fontSize: "14px",
+          _focus: {
+            borderColor: "green.500",
+            boxShadow: "0 0 0 1px var(--colors-green-500)",
+          },
+        })}
+      />
+        <button
+        className={css({
+          px: "16px",
+          py: "10px",
+          bg: "green.600",
+          color: "white",
+          borderRadius: "8px",
+          fontWeight: "bold",
+          cursor: "pointer",
+          _hover: {
+            bg: "green.700",
+          },
+        })}
+      >
+        Add
+      </button>
       <div
         className={css({
           width: "400px",
