@@ -52,7 +52,7 @@ export const todosDiv = {
               p: "12px",
               mb: "10px",
               borderRadius: "10px",
-              bg: data.completed ? "green.100" : "gray.50",
+            //   bg: data.completed ? "green.100" : "gray.50",
               border: "1px solid",
               borderColor: "gray.200",
             }
