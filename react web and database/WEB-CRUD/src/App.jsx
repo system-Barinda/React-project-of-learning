@@ -1,6 +1,6 @@
 import { css } from "../styled-system/css";
 import { useState } from "react";
-import { parentDiv } from "./Styles/TodoList";
+import { parentDiv,parentDiv1,h1cssDiv2,inputbutton } from "./Styles/TodoList";
 
 function App() {
   const todos1 = [
@@ -21,9 +21,9 @@ function App() {
   ];
 
   const [todos, setTodos] = useState(todos1);
-  const [newTodo, setNewTodo] = useState(""); // ✅ input state
+  const [newTodo, setNewTodo] = useState("");
 
-  // ✅ add todo function
+
   const handleAddTodo = () => {
     if (newTodo.trim() === "") return;
 
@@ -36,7 +36,7 @@ function App() {
     };
 
     setTodos([...todos, todo]);
-    setNewTodo(""); // ✅ clear input
+    setNewTodo(""); 
   };
 
   return (
@@ -44,31 +44,17 @@ function App() {
       className={css(parentDiv)}
     >
       <div
-        className={css({
-          width: "420px",
-          bg: "white",
-          p: "20px",
-          borderRadius: "12px",
-          boxShadow: "lg",
-        })}
+        className={css(parentDiv1)}
       >
         <h1
-          className={css({
-            fontSize: "20px",
-            fontWeight: "bold",
-            mb: "15px",
-          })}
+          className={css(h1cssDiv2)}
         >
           📝 Todo List
         </h1>
 
         {/* INPUT + BUTTON */}
         <div
-          className={css({
-            display: "flex",
-            gap: "10px",
-            mb: "20px",
-          })}
+          className={css(inputbutton)}
         >
           <input
             type="text"
