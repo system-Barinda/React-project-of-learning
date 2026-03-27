@@ -20,6 +20,23 @@ function App() {
   ];
 
   const [todos, setTodos] = useState(todos1);
+  const [newTodo, setNewTodo] = useState(""); // ✅ input state
+
+  // ✅ add todo function
+  const handleAddTodo = () => {
+    if (newTodo.trim() === "") return;
+
+    const todo = {
+      id: Date.now(),
+      title: newTodo,
+      description: "New task",
+      completed: false,
+      createdAt: new Date().toISOString().split("T")[0],
+    };
+
+    setTodos([...todos, todo]);
+    setNewTodo(""); // ✅ clear input
+  };
 
   return (
     <div
@@ -31,42 +48,9 @@ function App() {
         justifyContent: "center",
       })}
     >
-      <input
-        type="text"
-        placeholder="Enter the todo you want..."
-        className={css({
-          flex: 1,
-          p: "10px",
-          borderRadius: "8px",
-          border: "1px solid",
-          borderColor: "gray.300",
-          outline: "none",
-          fontSize: "14px",
-          _focus: {
-            borderColor: "green.500",
-            boxShadow: "0 0 0 1px var(--colors-green-500)",
-          },
-        })}
-      />
-        <button
-        className={css({
-          px: "16px",
-          py: "10px",
-          bg: "green.600",
-          color: "white",
-          borderRadius: "8px",
-          fontWeight: "bold",
-          cursor: "pointer",
-          _hover: {
-            bg: "green.700",
-          },
-        })}
-      >
-        Add
-      </button>
       <div
         className={css({
-          width: "400px",
+          width: "420px",
           bg: "white",
           p: "20px",
           borderRadius: "12px",
@@ -83,6 +67,54 @@ function App() {
           📝 Todo List
         </h1>
 
+        {/* INPUT + BUTTON */}
+        <div
+          className={css({
+            display: "flex",
+            gap: "10px",
+            mb: "20px",
+          })}
+        >
+          <input
+            type="text"
+            value={newTodo} // ✅ bind state
+            onChange={(e) => setNewTodo(e.target.value)} // ✅ update state
+            placeholder="Enter the todo you want..."
+            className={css({
+              flex: 1,
+              p: "10px",
+              borderRadius: "8px",
+              border: "1px solid",
+              borderColor: "gray.300",
+              outline: "none",
+              fontSize: "14px",
+              _focus: {
+                borderColor: "green.500",
+                boxShadow: "0 0 0 1px var(--colors-green-500)",
+              },
+            })}
+          />
+
+          <button
+            onClick={handleAddTodo} // ✅ add todo
+            className={css({
+              px: "16px",
+              py: "10px",
+              bg: "green.600",
+              color: "white",
+              borderRadius: "8px",
+              fontWeight: "bold",
+              cursor: "pointer",
+              _hover: {
+                bg: "green.700",
+              },
+            })}
+          >
+            Add
+          </button>
+        </div>
+
+        {/* TODO LIST */}
         {todos.map((data) => (
           <div
             key={data.id}
