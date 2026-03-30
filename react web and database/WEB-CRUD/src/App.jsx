@@ -1,5 +1,5 @@
-import Home from "./compo/Home";
-import {css} from ""
+import Home from "../compo/Home";
+
 function App(){
   return (
     <Home />
