@@ -1,6 +1,8 @@
+import Home from "./compo/Home";
+import {css} from ""
 function App(){
   return (
-    <h1>my name is barinda</h1>
+    <Home />
   )
 }
 export default App;
